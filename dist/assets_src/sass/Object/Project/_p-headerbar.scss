@@ -1,0 +1,99 @@
+@use '../../global' as g;
+//------------------------------------------------
+//    ヘッダーメニューバー
+//------------------------------------------------
+.p-headerbar {
+    width: 100%;
+    height: g.$header-height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition : background-color 0.3s;
+    &[data-float="true"]{
+        background-color: rgba(255, 255, 255, 0.50);
+    }
+    .inner {
+        width: 100%;
+        max-width: calc( 100% - 70px );
+        margin:auto;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .logo {
+        width: auto;
+        height: auto;
+//        display: flex;
+//        justify-content: center;
+//        align-items: center;
+        @include g.fz(28,28,bold);
+        @include g.ls(5);
+        color : g.$color-perple;
+    }
+    .menulist{
+        display:flex;
+        flex-direction:row;
+        gap: 30px;
+        .menuitem{
+            @include g.fz(16,16,bold);
+            @include g.ls(5);
+            color : g.$color-white;
+            &:hover{
+                color : g.$color-perple;
+            }
+            transition : color 0.3s;
+        }
+    }
+    
+}
+
+//============================================
+//  レスポンシブ
+//============================================
+@include g.mq('-lg') {    
+    .p-headerbar__logo {
+    }
+}
+
+@include g.mq('-md') {
+    .p-headerbar {
+        height: g.$header-height-sp;
+        justify-content: space-between;
+        //background-color: rgba(255, 255, 255, 0.5);
+        //background-color: rgba(0, 0, 0, 0.5);
+    }
+    
+    .p-headerbar__inner {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0px;
+        margin-right: 0px;
+    }    
+    
+    .p-headerbar__logo {
+        margin:auto;
+        //width: 96px;
+        height: 37px;
+    }
+}
+
+//----------------------------------------
+//  SP 767以下
+//----------------------------------------
+@include g.mq('-md') {
+    .p-headerbar {
+        .inner {
+            width: 100%;
+            max-width: calc( 100% - 40px );
+        }    
+        .logo {
+            margin-left: 20px;
+            width: g.vwsp(96.7);
+        }
+        .menulist{
+            display:none;
+        }
+    }
+}

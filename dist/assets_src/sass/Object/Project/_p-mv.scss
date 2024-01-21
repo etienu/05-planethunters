@@ -1,0 +1,238 @@
+@use '../../global' as g;
+//------------------------------------------------
+//    セクション01 - MV
+//------------------------------------------------
+[data-eff="txtmarker"]{
+    //  親をrelativeに
+    --translateX:-100%;
+    --beforeOpacity:1;
+    color : transparent;
+    //opacity: 1;
+    overflow:hidden;
+    visibility: hidden;
+    background-color : transparent;
+    &:after{
+        position :absolute;
+        content:"";
+        left: 0;
+        top : 0;
+        width: 100%;
+        height: 100%;
+        background-color:g.$color-pink;
+        //transition : width 0.3s, left 0.3s;
+        opacity: var(--beforeOpacity);
+        transform:translateX( var(--translateX) );
+    }
+    &[data-effstate="step1"]{
+        &:after{
+            width: 100%;
+        }
+    }
+    &[data-effstate="step2"]{
+        &:after{
+            left:100%;
+            width: 0%;
+        }
+    }
+}
+.p-mv {
+    position:relative;
+    background : g.$color-white;
+    overflow:hidden;
+    .p-mv__bg{
+        position:absolute;
+        margin : auto;
+        max-width: 100%;
+        width: 100%;
+        height: 100%;
+        //overflow:hidden;
+        display:flex;
+        justify-content: flex-end;
+        //transform:translateX( 32px );
+        picture{
+            position:relative;
+            width: fit-content;
+            display:flex;
+            justify-content: flex-end;
+            width: 100%;
+            img{
+                width: min(g.vw(1060), 1280px);//fit-content;
+                //width: fit-content;
+                aspect-ratio: 1060/680;
+                border-bottom-left-radius: 60px;
+            }
+        }
+
+    }
+    .p-mv__inner {
+        //max-width: calc(100% - 196px );
+        max-width: min( calc( 100% - 346px ),  g.$layout-width-comp  );
+        max-width: g.$layout-width-comp;
+        width: 100%;
+        margin : auto;
+        margin-left: g.vw(173);
+        height : 680px;
+        display:flex;
+        flex-direction:column;
+        align-items: flex-start;
+        justify-content: center;
+        .p-mv__texts{
+            position : relative;
+            width : 100%;
+            max-width: 740px;
+            color : g.$color-black;
+            text-align:left;
+            .subtitle{
+                color : g.$color-perple;
+                @include g.fz(24,24,bold);
+                @include g.ls(4.5);
+            }
+            h1,h2{
+                margin-top: 19px;
+                @include g.fz(90,90);
+                @include g.ls(1);
+                span{
+                    display:flex;
+                    flex-direction:row;
+                    position:relative;
+                    background-color : g.$color-white;
+                    width: fit-content;
+                    &.pink{
+                        color : g.$color-pink;
+                    }
+                }
+            }
+            p{
+                display:inline-block;
+                background-color : g.$color-white;
+                margin-top: 20px;
+                @include g.fz(28,28,bold);
+                @include g.ls(0);
+            }
+            .sign{
+                position :absolute;
+                right: 58px;
+                bottom : -23px;
+                width: 326px;
+                height: 68px;
+                transform : rotate(-13deg);
+            }
+        }
+        .p-mv__buttonwrapper{
+            margin-top: 32px;
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            button{
+
+            }
+        }
+    }
+}
+
+
+//----------------------------------------
+//  レスポンシブ
+//----------------------------------------
+//----------------------------------------
+//  PC版のみのCSS 768px以上
+//----------------------------------------
+@include g.mq('md-') {
+}
+
+@include g.mq('-xl') {
+}
+
+@include g.mq('-lg') {
+    
+}
+
+//----------------------------------------
+//  SP 767以下
+//----------------------------------------
+@include g.mq('-md') {
+.p-mv {
+    //overflow:hidden;
+    .p-mv__bg{
+        position:absolute;
+        margin : auto;
+        max-width: 100%;
+        width: 100%;
+        height: 100%;
+        //overflow:hidden;
+        display:flex;
+        justify-content: flex-end;
+        //transform:translateX( 32px );
+        picture{
+            position:relative;
+            width: fit-content;
+            display:flex;
+            justify-content: flex-end;
+            width: 100%;
+            img{
+                max-width: g.vwsp( 266 );
+                width: fit-content;
+                aspect-ratio: none;
+                border-bottom-left-radius: 60px;
+            }
+        }
+
+    }
+    .p-mv__inner {
+        max-width: 100%;
+        width: calc( 100% - 40px );
+        margin : auto;
+        height: 410px;//80lvh;
+//        height : 680px;
+        .p-mv__texts{
+            position : relative;
+            width : 100%;
+            max-width: 100%;
+            color : g.$color-black;
+            text-align:left;
+            .subtitle{
+                color : g.$color-perple;
+                @include g.fz(24,24,bold);
+                @include g.ls(4.5);
+            }
+            h1,h2{
+                margin-top: 19px;
+                @include g.fz(41.25,41.3,400);
+                @include g.ls(0);
+                span{
+                    background-color : g.$color-white;
+                    //display:inline-block;
+                    &.pink{
+                        color : g.$color-pink;
+                    }
+                }
+            }
+            p{
+                display:inline-block;
+                background-color : g.$color-white;
+                margin-top: 20px;
+                @include g.fz(13.13,13.1,bold);
+                @include g.ls(0);
+            }
+            .sign{
+                position :absolute;
+                right: 58px;
+                bottom : -23px;
+                width: 326px;
+                height: 68px;
+                transform : rotate(-13deg);
+            }
+        }
+        .p-mv__buttonwrapper{
+            margin-top: 32px;
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            button{
+
+            }
+        }
+    }
+}
+        
+}

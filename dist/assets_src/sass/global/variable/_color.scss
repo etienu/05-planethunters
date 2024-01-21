@@ -1,0 +1,36 @@
+/*----------------------------------------
+        色
+----------------------------------------*/
+$color-pink : #EB51C2;
+$color-perple : #D136D1;
+
+$color-white: #FFFFFF;
+$color-lightgray:#F2F2F2;
+$color-bordergray:#D9D9D9;
+$color-lightgray2:#DDDDDD;
+$color-gray:#E8E8E8;
+$color-darkgray:#8B8B8B;
+$color-green: #669988;
+$color-blue: #349BF4;
+$color-black: #141414;
+$color-black-a: rgba(86, 89, 86, 0.08); /* 透明度8% */
+$color-trueblack: #000;
+$color-darkgreen: RGBA(49,69,45,1);
+
+/*  文字色 */
+$color-font:$color-black;
+$color-font-w:$color-white; /* white */
+$color-font-b:$color-black; /* black */
+$color-font-d:$color-black; /* dark */
+
+/* 場面別 */
+$color-hreflink : $color-blue;
+$color-formborder:$color-bordergray;
+
+$color-main : $color-white;
+$color-border-gray:$color-gray;
+$color-font-headlineh2-eng: $color-darkgreen;
+$color-font-headlineh2-jp: $color-black;
+$color-headlineh3-box: $color-black;
+$color-font-headlineh3-eng: $color-black;
+$color-font-headlineh3-jp: $color-black;

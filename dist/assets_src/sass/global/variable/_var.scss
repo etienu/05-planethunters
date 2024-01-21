@@ -1,0 +1,72 @@
+/*============================================================
+#   variables
+#   変数
+============================================================*/
+/*  基本となるコンテンツ幅 */
+$layout-width-comp:1440px; //  デザインカンプ幅
+$layout-width-inner:1110px;//   インナー幅 : メイン
+$header-height:80px;
+$header-height-sp:60px;
+
+/*  メニューバー二段目がある場合 */
+$header-second-height-sp:0px;  /*  未使用の場合0に */
+
+/* ------------------------------------------------------------
+// Font
+// ------------------------------------------------------------*/
+/*  数値 */
+$numberFont: 'Roboto';
+
+/* $font-Futura: 'Futura';   //  Adobeフォントなので未使用 */
+$font-Futura: 'Hind'; /*  Futura代用 */
+
+/* googlefont */
+$font-roboto: 'Roboto';
+$font-Lato: 'Lato';
+$font-Lora: 'Lora';
+$font-Allura: 'Allura';
+$font-KiwiMaru: 'Kiwi Maru';
+$font-KosugiMaru: 'Kosugi Maru';
+$font-MPlus1p: 'M PLUS 1p';
+$font-YuMincho: 'Yu Mincho';
+$font-Josefin: 'Josefin Sans';
+
+/*  基本 */
+/*  英数字用、日本語用の順 */
+$baseFont: $font-Josefin, 'Noto Sans JP', "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+//$baseFont: 'Zen Kaku Gothic Antique', "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+
+
+/*  用途別フォント */
+$font-title: $font-YuMincho, $baseFont; /*  タイトルなどカッコつける文字 */
+$font-lead: $baseFont; /*  普通の文章 */
+$font-eng: $font-Josefin, $baseFont;
+$font-number: $font-Futura, $baseFont;
+
+/* --------------------------------------------
+//   フォントサイズ
+// --------------------------------------------*/
+/*  和文 */
+$size-font-h1-jp:32px;
+$size-font-h2-jp:28px;
+$size-font-h3-jp:20px;
+$size-font-h4-jp:16px;
+$size-font-h5-jp:12px;
+
+/*  英文 */
+$size-font-h1-en:38px;
+$size-font-h2-en:36px;
+$size-font-h3-en:20px;
+$size-font-h4-en:18px;
+$size-font-h5-en:14px;
+
+/*==========================================================================
+box shadow
+box-shadowジェネレータ https://www.bad-company.jp/box-shadow
+==========================================================================*/
+$shadow_color: #ccc; /* 影の色 */
+$shadowNormalLv1: 0 5px 20px $shadow_color;
+$shadowNormalLv2: 0 10px 25px 0 $shadow_color;
+$shadowAquaLv1: 0 5px 20px rgba(94, 135, 178, 0.4);
+$shadowAquaLv2: 0 10px 25px 0 rgba(94, 135, 178, 0.4);
+$shadowAquaLv3: 0 15px 25px 5px rgba(94, 135, 178, 0.4);

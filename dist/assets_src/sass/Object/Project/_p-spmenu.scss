@@ -1,0 +1,103 @@
+@use "../../global" as g;
+//----------------------------------------
+//   SPメニュー
+//  ドロワー
+//----------------------------------------
+.p-spmenu__wrapper {
+    display: fixed;
+    position: absolute;
+    left: 0;
+//    left: 100vw;
+    top: 0;
+    &[data-open="open"]{
+        left: 0;
+        width: 100%;
+        height: 100%;
+        .p-spmenu{
+            right: 0;
+            opacity: 1;
+        }
+        .p-spmenu__bg{
+            width: 100%;
+            background-color: RGBA( 0,0,0,0.5 );
+        }
+    }
+}
+.p-spmenu {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    right: -100vw;
+    width: g.vwsp(200);
+    height: 100%;
+    z-index: 600;
+    transition: right 0.3s, opacity 0.3s;
+    opacity: 0;
+    background-color: g.$color-perple;
+}
+
+.p-spmenu__bg {
+    //  spmenuから出して別で動かす
+    position: fixed;//absolute;
+    width: 0;
+    height: 100%;
+    z-index: 10;
+    //display: grid;
+    //grid-template-rows: 1fr 1fr 1fr 1fr;    
+    background-color: RGBA( 0,0,0,0.0 );
+    transition: background-color 0.3s;
+}
+
+.p-spmenu__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    width: 100%;
+    z-index: 5;
+    //  ヘッダーぶん
+    margin-top: calc( g.$header-height-sp + 30px );
+    ul {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: calc(100% - 100px );
+        //max-width: min( calc( 100% - 40px), 400px );
+        gap: 25px;
+        text-align: left;
+        li {
+            //font-family : g.$font-NotoSansJP;
+            color : g.$color-font-w;
+            @include g.fz( 16, 16 );
+            @include g.ls( 5 );
+            width: 100%;
+            a {
+                display: block;
+                width: 100%;
+                transition: text-shadow 0.3s;
+                &:hover{
+                    $tcol : rgba(200,220,50,1);//lightgreen;
+                    text-shadow: 2px 2px 0 $tcol, -2px -2px 0 $tcol, -2px 2px 0 $tcol, 2px -2px 0 $tcol, 0px 2px 0 $tcol, -2px 0 $tcol, -2px 0 0 $tcol, 2px 0 0 $tcol;
+                }
+            }
+        }
+    }
+}
+
+//--------------------------------
+//  レスポンシブ
+//--------------------------------
+//  PCの場合隠す
+@include g.mq('md-') {
+    .p-spmenu {
+        display:none;
+    }    
+    .p-spmenu__bg {
+        display:none;
+    }
+}

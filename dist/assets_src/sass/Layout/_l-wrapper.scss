@@ -1,0 +1,26 @@
+@use '../global' as g;
+
+//  ボタンエリアなど汎用ラッパー
+.l-wrapper{
+    width: 100%;
+    display: flex;
+    &.flex-start{
+        justify-content: flex-start;
+    }
+    &.flex-center{
+        justify-content: center;
+    }
+}
+
+
+//----------------------------------------
+//  SP 767以下
+//----------------------------------------
+@include g.mq('-md') {
+//  フラグを立てていても強制的にcenter
+.l-wrapper{
+    &.flex-start{
+        justify-content: center;
+    }
+}
+}

@@ -1,0 +1,51 @@
+@use "../../global" as g;
+//   ハンバーガーメニュー
+.c-hamburger {
+    width: 60px;
+    height: 60px;
+    margin: 0;
+    transition: opacity 0.3s;
+    background-color: g.$color-perple;
+    //  独立メニュー
+    &.fixed{
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 999;
+    }
+    .c-hamburger__inner{
+        width : 100%;
+        height: 100%;
+        transform : translateY( -1px );
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+    }
+    span {
+        top : 1px;
+        width: 28px;
+        height: 4px;
+        border-radius: 20px;
+        background-color: g.$color-white;
+        transition: width 0.3s, height 0.3s, transform 0.3s, opacity 0.5s;
+    }
+    &:hover {
+        cursor: pointer;
+        opacity : 0.8;
+    }
+    &[data-open="open"] {
+        span {
+            &:nth-child(1) {
+                transform: rotate(135deg) translate(5px, -6px);
+            }
+            &:nth-child(2) {
+                opacity: 0;
+            }
+            &:nth-child(3) {
+                transform: rotate(-135deg) translate(5px, 6px);
+            }
+        }
+    }
+}

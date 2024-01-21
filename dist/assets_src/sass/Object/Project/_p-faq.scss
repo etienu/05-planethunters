@@ -1,0 +1,321 @@
+@use '../../global' as g;
+//------------------------------------------------
+//    top- セクション05 - FAQ
+//------------------------------------------------
+.p-faq {
+    position:relative;
+    padding-top: 60px;
+    padding-bottom : 70px;
+    display:flex;
+    flex-direction:column;
+
+    .p-faq__inner {
+        max-width: min( calc(100% - 40px), calc(g.$layout-width-inner) );
+        width: 100%;
+        margin : auto;
+        display:flex;
+        flex-direction:column;
+        align-items: flex-start;
+    }
+    .p-faq__title{
+        @include g.fz(20,20);
+        @include g.ls(5);
+        color : g.$color-white;
+        text-align:left;
+        .pink{
+            color :g.$color-pink;
+            margin-top :10px;
+        }
+    }
+    .p-faq__content{
+        width: 100%;
+        padding-top: 20px;
+        .p-faq__grid{
+            width: 100%;
+            //  アイテム li
+            .p-faq__griditem {
+                text-align:left;
+                width: calc( 100% - 10px );
+                position : relative;
+                height: auto;
+                border-bottom : 1px solid g.$color-border-gray;
+                &:nth-child(n+2){
+                //    border-top : 1px solid g.$color-border-gray;
+                }
+                .p-faq__q {
+                    display: flex;
+                    flex-direction : row;
+                    position : relative;
+                    font-size: 18px;
+                    height: 100%;
+                    width: 100%;
+                    //padding-left: 18px;
+                    padding-top : 4px;
+                    //border-bottom : 1px solid g.$color-border-gray;
+                    gap: 20px;
+                    // Q
+                    &:before{
+                        content : "Q";
+                        width: 24px;
+                        height: 100%;
+                        transform: translate( -4px , 0px );
+                        @include g.fz(26,29.9);
+                        @include g.ls(0);
+                        color : g.$color-pink;
+                        margin:auto;
+                        //margin-right: 20px;
+                        margin-top : 0;
+                        padding-top : 19px;
+                    }
+                    .p-faq__q-inner {
+                        display:flex;
+                        flex-direction:row;
+                        justify-content: space-between;
+                        width: 100%;
+                        font-size: 18px;
+                        margin:auto;
+                        margin-left: 1px;
+                        margin-top: -2px;
+                        padding-top: 20px;
+                        padding-bottom: 21px;
+                        .icon{
+                            margin-right: 26px;
+                        }
+                    }
+                    //  下線
+                    &:after{
+                        position: absolute;
+                        content : "";
+                        left: 0;
+                        top : 0;
+                        width: 100%;
+                        height: 100%;
+                        //border-bottom : 1px solid g.$color-border-gray;
+                    }
+                }// q
+
+                .p-faq__a {
+                    display: flex;
+                    flex-direction : row;
+                    position : relative;
+                    font-size: 18px;
+                    height: 100%;
+                    width: 100%;
+                    overflow:hidden;
+                    &[data-open="true"]{
+                        .p-faq__a__inner {
+                            p{
+                                transform: translate( 0 , 0% );
+                            }
+                        }
+                    }
+                    .p-faq__a__inner {
+                        position : relative;
+                        display: flex;
+                        flex-direction : row;
+                        margin : auto;
+                        margin-left: 0;
+                        padding-top : 16px;
+                        padding-bottom: 16px;
+                        font-weight: 400;
+                        font-size: 16px;
+                        gap: 20px;
+                        p{
+                            transition : transform 0.3s;
+                            transform: translate( 0 , -50% );
+                            //height: 0;
+                            display: block;
+                        }
+                        a{
+                            text-decoration: underline;
+                            transition : opacity 0.3s;
+                            &:hover{
+                                opacity: 0.8;
+                            }
+                        }
+                        // A
+                        &:before{
+                            content : "A";
+                            width: 24px;//g.rem(16);
+                            height: 100%;
+                            @include g.fz(26,29.9);
+                            @include g.ls(0);
+                            color : g.$color-pink;
+                            margin : auto;
+                            //margin-right: 20px;
+                            margin-top : 0;
+                        }
+                    }// inner
+                }// a
+            }// griditem
+        }// grid
+    }//content
+}
+
+
+//----------------------------------------
+//  レスポンシブ
+//----------------------------------------
+//----------------------------------------
+//  PC版のみのCSS 768px以上
+//----------------------------------------
+@include g.mq('md-') {
+}
+
+@include g.mq('-xl') {
+}
+
+@include g.mq('-lg') {
+}
+
+//----------------------------------------
+//  SP 767以下
+//----------------------------------------
+@include g.mq('-md') {
+.p-faq {
+    position:relative;
+    padding-top: 40px;
+    padding-bottom : 50px;
+
+    .p-faq__inner {
+        max-width:calc(100% - 40px);
+        width: 100%;
+        margin : auto;
+        display:flex;
+        flex-direction:column;
+        align-items: flex-start;
+    }
+    .p-faq__title{
+        @include g.fz(14,14);
+        @include g.ls(0);
+        color : g.$color-white;
+        text-align:left;
+        .pink{
+            display:block;
+            margin-top : 10px;
+        }
+    }
+    .p-faq__content{
+        width: 100%;
+        padding-top: 20px;
+        .p-faq__grid{
+            width: 100%;
+            //  アイテム li
+            .p-faq__griditem {
+                text-align:left;
+                width: calc( 100%);
+                position : relative;
+                height: auto;
+                .p-faq__q {
+                    display: flex;
+                    flex-direction : row;
+                    position : relative;
+                    font-size: 18px;
+                    height: 100%;
+                    width: 100%;
+                    //padding-left: 18px;
+                    padding-top : 4px;
+                    //border-bottom : 1px solid g.$color-border-gray;
+                    gap: 20px;
+                    // Q
+                    &:before{
+                        content : "Q";
+                        width: 24px;
+                        height: 100%;
+                        transform: translate( -4px , 0px );
+                        @include g.fz(26,29.9);
+                        @include g.ls(0);
+                        color : g.$color-pink;
+                        margin:auto;
+                        //margin-right: 20px;
+                        margin-top : 0;
+                        padding-top : 19px;
+                    }
+                    .p-faq__q-inner {
+                        display:flex;
+                        flex-direction:row;
+                        justify-content: space-between;
+                        width: 100%;
+                        @include g.fz(15,25.5);
+                        @include g.ls(0);
+                        margin:auto;
+                        margin-left: 1px;
+                        margin-top: -2px;
+                        padding-top: 20px;
+                        padding-bottom: 21px;
+                        .icon{
+                            margin-right: 8px;
+                        }
+                    }
+                    //  下線
+                    &:after{
+                        position: absolute;
+                        content : "";
+                        left: 0;
+                        top : 0;
+                        width: 100%;
+                        height: 100%;
+                        //border-bottom : 1px solid g.$color-border-gray;
+                    }
+                }// q
+
+                .p-faq__a {
+                    display: flex;
+                    flex-direction : row;
+                    position : relative;
+                    font-size: 18px;
+                    height: 100%;
+                    width: 100%;
+                    overflow:hidden;
+                    &[data-open="true"]{
+                        .p-faq__a__inner {
+                            p{
+                                transform: translate( 0 , 0% );
+                            }
+                        }
+                    }
+                    .p-faq__a__inner {
+                        position : relative;
+                        display: flex;
+                        flex-direction : row;
+                        margin : auto;
+                        margin-left: 0;
+                        padding-top : 16px;
+                        //padding-left: 18px;
+                        @include g.fz(15,25.5,400);
+                        @include g.ls(0);
+
+                        gap: 20px;
+                        p{
+                            transition : transform 0.3s;
+                            transform: translate( 0 , -50% );
+                            //height: 0;
+                            display: block;
+                        }
+                        a{
+                            text-decoration: underline;
+                            transition : opacity 0.3s;
+                            &:hover{
+                                opacity: 0.8;
+                            }
+                        }
+                        // A
+                        &:before{
+                            content : "A";
+                            width: 24px;//g.rem(16);
+                            height: 100%;
+                            @include g.fz(26,29.9);
+                            @include g.ls(0);
+                            color : g.$color-pink;
+                            margin : auto;
+                            //margin-right: 20px;
+                            margin-top : 0;
+                        }
+                    }// inner
+                }// a
+            }// griditem
+        }// grid
+    }//content
+}
+    
+}

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>PlanetHunters | 惑星を奪還せよ</title>
+    <meta name="description" content="奪われた故郷の星を取り戻せ。">
+	<meta name="keywords" content="">
+
+	<!--icon,Favicon -->
+	<link rel="shortcut icon" href="assets/images/common/favicon/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/images/common/favicon/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" type="image/png" href="assets/images/common/favicon/android-touch-icon.png" sizes="192x192">
+
+    <!-- OGP -->
+    <meta property='og:type' content='website'>
+    <meta property='og:title' content='ENGBODY'>
+    <meta property='og:url' content=''>
+    <meta property='og:description'
+    content='奪われた故郷の星を取り戻せ。壮大なSFファンタジー'>
+    <meta property="og:image" content="assets/images/common/ogp.png">
+
+	<!-- noindex -->
+    <meta name="robots" content="noindex,nofollow">
+
+    <!-- URL正規化 -->
+    <link rel="canonical" href="\">
+
+	<!-- js : defer指定 : 遅延読み込みの為、headに記述  -->
+	<script src="assets/lib/gsap/gsap.min.js" defer></script>
+	<script src="assets/lib/gsap/ScrollTrigger.min.js" defer></script>    
+	<script src="assets/lib/swiper/swiper-bundle.min.js" defer></script>    
+	<script src="assets/js/bundle.js?v=1" defer></script>
+    <!-- css  -->
+    <link rel="stylesheet" href="assets/lib/swiper/swiper-bundle.min.css">
+	<link rel="stylesheet" href="assets/css/style.css?v=1">
+
+	<!-- Font -->
+</head>
+<!-- Head : END -->
+
+<body>
+    <!-- Header Start -->
+    <header class="l-header" data-js="header">
+        <div class="p-headerbar" id="header">
+            <div class="p-headerbar__inner">
+                <a href="#">
+                    <h1 class="logo enff">
+                        <picture>
+                            <source srcset="assets/images/header/pc/logo.svg" media="(max-width: 768px)" width="96.7" height="12.36">
+                            <img src="assets/images/header/pc/logo.svg" alt="ENGBODY" width="180" height="23">
+                        </picture>
+                    </h1>
+                </a>
+                
+                <nav>
+                    <ul class="p-headerbar__menulist">
+                        <li class="p-headerbar__menuitem">STORY</li>
+                        <li class="p-headerbar__menuitem">TRAILER</li>
+                    </ul>
+                    <button class="c-button__cv --header">
+                        PLAY NOW
+                    </button>
+                </nav>
+            </div>
+            <div class="p-headerbar__subinner">
+                <button class="p-headerbar__soundswitch">
+                    SOUND OFF
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- SPMENUとの被りを考慮し独立している
+    <button class="c-hamburger fixed u-display__sp"
+        data-js="button" data-name="hamburger"
+        data-headerid="header" data-menuid="spmenu"
+        data-menubgid="spmenubg">
+        <div class="c-hamburger__inner">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </button>
+     -->
+    <!-- Header End -->
+
+    <!-- spMenu
+    <div class="p-spmenu__wrapper" id="spmenu">
+        <div class="p-spmenu__bg">
+        </div>
+        <div class="p-spmenu">
+        <div class="p-spmenu__inner">
+            <ul class="enff">
+                <li><a href="#about"><span>ABOUT</span></a></li>
+                <li><a href="#speaker"><span>SPEAKER</span></a></li>
+                <li><a href="#session"><span>SESSION</span></a></li>
+            </ul>  
+        </div>
+        </div>
+    </div>
+     -->
+    <!-- spMenu : END -->
+
+    <main class="l-main" id="top">
+        <!-- section : MV -->
+        <section class="l-section p-mv" id="mv">
+            <div class="p-mv__bg">
+                <picture>
+                    <source srcset="assets/images/top/pc/mv.png" media="(max-width: 768px)" width="1200" height="630">
+                    <img src="assets/images/top/pc/mv.png" alt="" width="1200" height="630">
+                </picture>
+            </div>
+            <div class="l-inner p-mv__inner">
+                <div class="p-mv_content">
+                    <div class="p-mv__texts">
+                        <p>VR GAME</p>
+                        <h2 class="enff --i" lang="en">
+                            <span>Planet<br>Hunters</span>
+                        </h2>
+                        <p>惑星を奪還せよ</p>
+                    </div>
+                    <div class="p-mv__buttonwrapper">
+                        <a class="c-button__cv" href="#"><span>PLAY NOW</span></a>
+                    </div>
+                    <div class="p-mv__newswrapper">
+                        <span>2030.02.20</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- section:END -->
+
+        <!-- section : STORY -->
+        <section class="l-section p-story" id="story">
+            <div class="p-story__header">
+                <h2 class="p-story__title">
+                    <span class="c-title enff" lang="en">STORY</span>
+                </h2>
+            </div>
+            <div class="l-inner p-story__inner">
+                <ul class="p-story__boxlist">
+                    <li class="p-story__box">
+                        <div class="p-story__texts">
+                            <h2 class="p-story__sectiontitle">STORY</h2>
+                            <h3 class="p-story__title">
+                                奪われた故郷の星を取り戻せ<br>壮大なSFファンタジー
+                            </h3>
+                            <p class="p-story__lead">
+                                銀河歴222年、惑星ネコチャンは、ボスネコ将軍の率いる軍の反乱により完全に制圧された。将軍の側近マンチカンは軍政府に従わない人間を辺境の星ニャゴーへ強制的に追放。食料や資源の乏しいニャゴーでは多くの難民が発生し飢餓に苦しんでいた。ニャゴーのスラム街で育った孤児の姉弟がいた。姉のミケと弟のタマは母親をボスネコ将軍に殺された事実を知る。母の復讐のため、そして故郷の惑星ネコチャンを奪還すべく、ミケとタマはいま行動に出る！
+                            </p>
+                        </div>
+                        <div class="p-story_image">
+                            <picture>
+                                <img src="assets/images/header/pc/story1.png" alt="" width="437" height="500">
+                            </picture>
+                        </div>
+                    </li>
+                    <li class="p-story__box">
+                        <div class="p-story__texts">
+                            <h3 class="p-story__title">
+                                隠された陰謀を暴け<br>衝撃的な事実に驚愕
+                            </h3>
+                            <p class="p-story__lead">
+                                ミケとタマはネコジャラシ作戦により軍政府の最新鋭の小型船チュールを奪うことに成功。チュールのハイテンションワープ星間航行により惑星ネコチャンへあとわずか３時間で到着という時、小惑星帯アビシニアンで謎の救難信号を受信する。意外にも信号の発信源はボスネコ将軍だった。彼は今にも絶えそうなかすれた声で「私はおまえたちミケとタマの父親なのだ」と語る。その瞬間、ミケとタマの育ての親同然で仲間のはずのホワイトオッドアイがタマの背中を刀で切り裂いたのだった......
+                            </p>
+                        </div>
+                        <div class="p-story_image">
+                            <picture>
+                                <img src="assets/images/header/pc/story1.png" alt="" width="437" height="500">
+                            </picture>
+                        </div>
+                    </li>
+                </ul>
+                <p class="p-heyguys__texts">
+                </p>
+            </div>
+        </section>
+        <!-- section:END -->
+
+        <!-- section : CTA -->
+        <section class="l-section p-cta" id="cta">
+            <div class="l-section__header">
+                <h2>ARE YOU READY TO FIGHT?</h2>
+            </div>
+            <div class="l-inner p-cta__inner">
+            </div>            
+            <div class="l-section__footer">
+                <button class="c-button__cv">PLAY NOW</button>
+            </div>
+        </section>
+        <!-- section:END -->
+
+        <!-- section : トレーラー -->
+        <section class="l-section p-trailer" id="trailer">
+            <div class="l-section__header">
+                <h2>ARE YOU READY TO FIGHT?</h2>
+            </div>
+            <div class="l-inner p-trailer__inner">
+            </div>            
+        </section>
+        <!-- section:END -->
+
+        <!-- section : CTA -->
+        <section class="l-section p-cta" id="cta">
+            <div class="l-section__header">
+                <h2>ARE YOU READY TO FIGHT?</h2>
+            </div>
+            <div class="l-inner p-cta__inner">
+            </div>            
+            <div class="l-section__footer">
+                <button class="c-button__cv">PLAY NOW</button>
+            </div>
+        </section>
+        <!-- section:END -->
+
+    </main>
+
+
+    <!-- footer -->
+	<footer id="footer" class="l-section p-footer">
+		<div class="l-inner p-footer__inner">
+            <div class="p-footer__snswrapper">
+            </div>
+            <div class="p-footer__copylight">
+                <small>©Necopon games</small>
+            </div>
+		</div>
+        <div class="l-section__footer u-display__sp">
+            <button class="c-button__cv --footer">PLAY NOW</button>
+        </div>
+</footer><!-- /footer -->
+
+</body>
+
+</html>

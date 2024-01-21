@@ -1,0 +1,96 @@
+@use 'sass:map';
+
+$brk_sp: 768px;
+/* どちらも微妙な場合の分割 */
+ $brk_pc2: 960px;
+$brk_pc: 1280px;
+
+/* 2023年 SP:0～599 TAB:600～1024 PC:1025px以上 */
+
+/*========================================
+        ブレイクポイント
+========================================*/
+
+$bp:(
+sm: 640, /*  以下 Small */
+md: 768, /*  md  Medium */
+lg: 1024,/*  lg  Large */
+xl: 1280 /*  xl  X-Large */
+);
+
+/*  bootstrap5式 */
+//  スマホファースト式のレスポンシブは768ではなく1024など分岐点が変わる
+$bp_bs5:(
+xs: 375, /*  X-small : SPカンプ幅(375) */
+sm: 576, /*  Small : SPカンプ中間で調整したい場合の位置 */
+md: 768, /*  md  Medium : SPカンプとtab-pcの境目、md以下がSPカンプ、以上がPCカンプ */
+lg: 992, /*  lg  Large :  tab-pc中間で調整したい場合の位置 */
+//md:1024, /*  md  Medium : SPカンプとtab-pcの境目、md以下がSPカンプ、以上がPCカンプ */
+//lg:1124, /*  lg  Large :  tab-pc中間で調整したい場合の位置 */
+xl: 1280, /*  xl  X-Large : ノートPC幅(1280) */
+xxl: 1440 /*  xxl XX-Large : PCカンプ幅(1440) */
+);
+
+$breakpoints: ( /*  キー : 値 */
+'sp': 'screen and (max-width: #{$brk_sp - 1px})', /*  767px以下(スマホ) */
+'sp-tab': 'screen and (max-width: #{$brk_pc - 1px})', /*  (スマホ・タブレット) */
+'sp-tab2': 'screen and (max-width: #{$brk_pc2 - 1px})', /*  (スマホ・タブレット) */
+'tab': 'screen and (min-width: #{$brk_sp - 1px}) and (max-width: #{$brk_pc - 1px})', /*  1280px以下(タブレット) */
+'tab2': 'screen and (min-width: #{$brk_sp - 1px}) and (max-width: #{$brk_pc2 - 1px})',
+'tab-pc': 'screen and (min-width: #{$brk_sp - 1px})', /*  768px以上(タブレット・PC) */
+'pc2': 'screen and (min-width: #{$brk_pc2})', /*  960px以上(タブレツト・PC) */
+'pc': 'screen and (min-width: #{$brk_pc})' /*  1280px以上(タブレツト・PC) */
+) !default;
+
+/*
+//  BootStrap5基準
+//  キー : 値
+//　記述パターン
+//　 -xx : 0から指定サイズまで
+//　  xx : 指定サイズ区間のみ
+//　  xx-xx : 指定サイズから指定サイズの区間
+//　 xx- : 指定サイズ以上
+//
+//  主に使用するもの
+//　  1.-md : SPの最大幅(0～767)
+//　  2.md- : タブレット以上(768～無制限)
+//  演出と調整で使用
+//  md-lg : SP最大以上、タブレット幅の微妙な要素崩れの分岐
+//  md-xxl : PCカンプ幅の範囲でのみ表示する必用がある場合
+//  xl- : ノートPC幅では消し、デスクトップPC幅では表示したい場合
+//  xxl- : PCカンプ以上でサイドバーや広告を入れる場合
+*/
+
+/* 形式をpx変換すること */
+$breakpointsbs: (
+/*sp */
+'-xs': 'screen and (max-width: #{map-get($bp_bs5, 'xs') - 1px})', /*  SPカンプ以下 */
+'-sm': 'screen and (max-width: #{map-get($bp_bs5, 'sm') - 1px})', /*  SPカンプ中間 */
+'md' : 'screen and (min-width: #{map-get($bp_bs5, 'sm') - 0px}) and (max-width: #{map-get($bp_bs5, 'md') - 1px})', /*  SPカンプ最大幅以下 */
+'-md': 'screen and (max-width: #{map-get($bp_bs5, 'md') - 1px})', /*  0～md(スマホ最大) */
+'md-': 'screen and (min-width: #{map-get($bp_bs5, 'md') - 0px})', /*  md(スマホ最大)～ */
+/*'md-': 'screen and (min-width: 768px)', //  md(スマホ最大)～ */
+/*pc*/
+'md-lg' : 'screen and (min-width: #{map-get($bp_bs5, 'md') - 1px}) and (max-width: #{map-get($bp_bs5, 'lg') - 1px})', /*  (スマホ・タブレット) */
+'-lg'   : 'screen and (max-width: #{map-get($bp_bs5, 'lg') - 1px})', /*  タブレット以下 */
+'lg'    : 'screen and (min-width: #{map-get($bp_bs5, 'md') - 0px}) and (max-width: #{map-get($bp_bs5, 'lg') - 1px})', /* タブレットのみ */
+'lg-'   : 'screen and (min-width: #{map-get($bp_bs5, 'lg') - 0px})', /*  992px以上(PC) */
+'lg-xxl': 'screen and (min-width: #{map-get($bp_bs5, 'md') - 0px}) and (max-width: #{map-get($bp_bs5, 'lg') - 1px})', /* md値より上、lgからxl768px以上(タブレット・PC) */
+'-xl'   : 'screen and (max-width: #{map-get($bp_bs5, 'xl') - 1px})', /*  1280px以下(タブレット・PC) */
+'xl'    : 'screen and (min-width: #{map-get($bp_bs5, 'lg') - 0px}) and (max-width: #{map-get($bp_bs5, 'xl') - 1px})', /* ノートPC～PC */
+'xl-'   : 'screen and (min-width: #{map-get($bp_bs5, 'xl') - 0px})', /*  1280px以上(タブレット・PC) */
+'xxl-'  : 'screen and (min-width: #{map-get($bp_bs5, 'xxl')- 0px})' /*  1440px以上(タブレット・PC) */
+) !default;
+
+/*----------------------------------------
+//        メディアクエリ
+//----------------------------------------*/
+@mixin mq($bpname) {
+    /*  map-get(マップ型変数,キー)で値を取得
+    @media #{map-get( $breakpointsbs, $bpname )} {
+     */
+    @media #{map-get($breakpointsbs, $bpname)} {
+        /*  呼び出しもとの値が入る */
+        @content;
+    }
+}

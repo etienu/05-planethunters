@@ -1,0 +1,143 @@
+/*
+//  googlefonts
+//  Noto Serif JP
+@font-face {
+    font-family: 'Noto Serif JP';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url("../webfonts/googlefonts/NotoSerifJP/NotoSerifJP-Regular.woff2") format("woff2"),
+    url("../webfonts/googlefonts/NotoSerifJP/NotoSerifJP-Regular.woff") format("woff"),
+    url("../webfonts/googlefonts/NotoSerifJP/NotoSerifJP-Regular.otf") format("truetype");
+    font-display: swap;
+}
+*/
+/*  Noto Sans JP */
+@font-face {
+    font-family: 'Noto Sans JP';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url("../webfonts/googlefonts/Noto_Sans_JP/static/NotoSansJP-Medium.woff2") format("woff2"),
+    url("../webfonts/googlefonts/Noto_Sans_JP/static/NotoSansJP-Medium.ttf") format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Noto Sans JP';
+    font-style: normal;
+    font-weight: 300;
+    font-display: block;
+    src: url("../webfonts/googlefonts/Noto_Sans_JP/static/NotoSansJP-Regular.woff2") format("woff2"),
+    url("../webfonts/googlefonts/Noto_Sans_JP/static/NotoSansJP-Regular.ttf") format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Noto Sans JP';
+    font-style: normal;
+    font-weight: 200;
+    font-display: block;
+    src: url("../webfonts/googlefonts/Noto_Sans_JP/static/NotoSansJP-Light.woff2") format("woff2"),
+    url("../webfonts/googlefonts/Noto_Sans_JP/static/NotoSansJP-Light.ttf") format("truetype");
+    font-display: swap;
+}
+
+/*  Zen_Kaku_Gothic_Antique */
+@font-face {
+    font-family: 'Zen Kaku Gothic Antique';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url("../webfonts/googlefonts/Zen_Kaku_Gothic_Antique/ZenKakuGothicAntique-Medium.woff2") format("woff2"),
+    url("../webfonts/googlefonts/Zen_Kaku_Gothic_Antique/ZenKakuGothicAntique-Medium.ttf") format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Zen Kaku Gothic Antique';
+    font-style: normal;
+    font-weight: 300;
+    font-display: block;
+    src: url("../webfonts/googlefonts/Zen_Kaku_Gothic_Antique/ZenKakuGothicAntique-Regular.woff2") format("woff2"),
+    url("../webfonts/googlefonts/Zen_Kaku_Gothic_Antique/ZenKakuGothicAntique-Regular.ttf") format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Zen Kaku Gothic Antique';
+    font-style: normal;
+    font-weight: 200;
+    font-display: block;
+    src: url("../webfonts/googlefonts/Zen_Kaku_Gothic_Antique/ZenKakuGothicAntique-Light.woff2") format("woff2"),
+    url("../webfonts/googlefonts/Zen_Kaku_Gothic_Antique/ZenKakuGothicAntique-Light.ttf") format("truetype");
+    font-display: swap;
+}
+
+/*
+//  Lora
+@font-face {
+    font-family: 'Lora';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url("../webfonts/googlefonts/Lora/static/Lora-Medium.woff2") format("woff2"),
+    url("../webfonts/googlefonts/Lora/static/Lora-Medium.woff") format("woff"),
+    url("../webfonts/googlefonts/Lora/static/Lora-Medium.ttf") format("truetype");
+    font-display: swap;
+}
+*/
+/*
+//  Hind
+@font-face {
+    font-family: 'Hind';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: //url("../webfonts/googlefonts/Hind/Hind-Medium.woff2") format("woff2"),
+//    url("../webfonts/googlefonts/Hind/Hind-Medium.woff") format("woff"),
+    url("../webfonts/googlefonts/Hind/Hind-Medium.ttf") format("truetype");
+    font-display: swap;
+}
+*/
+//  Josefin Sans
+@font-face {
+    font-family: 'Josefin Sans';
+    font-style:italic;
+    font-weight: 400;
+    font-display: block;
+    src: url("../webfonts/googlefonts/Josefin_Sans/JosefinSans-Italic.woff2") format("woff2"),
+    url("../webfonts/googlefonts/Josefin_Sans/JosefinSans-Italic.ttf") format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Josefin Sans';
+    font-style:normal;
+    font-weight: 400;
+    font-display: block;
+    src: url("../webfonts/googlefonts/Josefin_Sans/JosefinSans-Regular.woff2") format("woff2"),
+    url("../webfonts/googlefonts/Josefin_Sans/JosefinSans-Regular.ttf") format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Josefin Sans';
+    font-style:italic;
+    font-weight: bold;
+    font-display: block;
+    src: url("../webfonts/googlefonts/Josefin_Sans/JosefinSans-BoldItalic.woff2") format("woff2"),
+    url("../webfonts/googlefonts/Josefin_Sans/JosefinSans-BoldItalic.ttf") format("truetype");
+    font-display: swap;
+}
+
+//  Exo
+@font-face {
+    font-family: 'Exo';
+    font-style:normal;
+    font-weight: 400;
+    font-display: block;
+    src: url("../webfonts/googlefonts/Exo/Exo-VariableFont_wght_subset.woff2") format("woff2"),
+    url("../webfonts/googlefonts/Exo/Exo-VariableFont_wght_subset.ttf") format("truetype");
+    font-display: swap;
+}
+
+/*
+本文：Noto Serif JP
+見出しなど：Noto Serif JP
+数字：Lora
+*/

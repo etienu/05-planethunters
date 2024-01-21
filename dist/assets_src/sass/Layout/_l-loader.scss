@@ -1,0 +1,182 @@
+@use '../global' as g;
+/*-------------------------------------------
+//  ローディング
+//-------------------------------------------*/
+.l-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    /* 背景色（黒、不透明度80% */
+    background-color: g.$color-black;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* 表示を一番上 */
+    z-index: 999;
+
+    /* 選択不可 */
+    user-select: none;
+    transition: 1.0s opacity;
+    &.hide {
+        pointer-events: none;
+        opacity: 0;
+    }
+    &.delete {
+        display: none;
+        width: 0;
+        height: 0;
+    }
+}
+
+.load-text {
+    color: white;
+    font-size: 16pt;
+    margin-top: 80px;
+}
+
+.load-blink {
+    animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+.load-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 10px solid rgba(255, 255, 255, 0.5);
+    border-top-color: rgba(255, 255, 255, 1);
+    animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.load-absolute {
+    position: absolute;
+}
+
+/* ------------------------------------------------------------------------------------------------- */
+.load-5{
+    display: inline-block;
+    height: 100px;
+    margin: 50px;
+    position: relative;
+    width: 100px;
+    div{
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        left: 0;
+        border: 4px solid rgba(150, 205,124, 1);
+        animation: load-5-1 1.5s infinite ease-in-out;
+        &:nth-child(1){
+            width: 60px;
+            height: 60px;
+            top: 20px;
+            left: 20px;
+            animation: load-5-2 1.5s infinite ease-in-out;
+        }
+        &:nth-child(2){
+            width: 20px;
+            height: 20px;
+            background: rgba(155, 205,124, 1);
+            top: 40px;
+            left: 40px;
+            animation: load-5-3 3s infinite ease-in-out;
+        }
+    }
+}  
+@keyframes load-5-1{
+    0%{ transform: perspective(100px) rotatex(0deg) rotatey(0deg);    }
+   50%{ transform: perspective(100px) rotatex(180deg) rotatey(0deg);    }
+  100%{ transform: perspective(100px) rotatex(180deg) rotatey(180deg);  }
+}  
+@keyframes load-5-2{
+    0%{ transform: perspective(150px) rotatex(0deg) rotatey(0deg);      }
+   50%{ transform: perspective(150px) rotatex(-180deg) rotatey(0deg);   }
+  100%{ transform: perspective(150px) rotatex(-180deg) rotatey(-180deg);}
+}  
+@keyframes load-5-3{
+    0%{ transform: perspective(100px) rotatex(0deg) rotatey(0deg); }
+   50%{ transform: perspective(100px) rotatex(0deg) rotatey(0deg);  }
+  100%{ transform: perspective(100px) rotatex(180deg) rotatey(180deg); }
+}
+
+@keyframes load-6-animation{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------- */
+$time: 0.6s;
+.loading-4 {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  left: 50%;
+  top: 50%;
+  margin: -24px 0 0 -24px;
+  span {
+    animation-name: loading-4;
+    animation-duration: $time;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    display: block;
+    margin: 2px;
+    width: 20px;
+    height: 20px;
+    float: left;
+    &:nth-child(1) {
+      animation-delay: 0s;
+      background-color: rgba(100, 155,124, 1);
+    }
+    &:nth-child(2) {
+      animation-delay: $time * .25;
+      background-color: rgba(150, 205,174, 1);
+    }
+    &:nth-child(3) {
+      clear: both;
+      float: right;
+      animation-delay: $time * .5;
+      background-color: rgba(200, 255,224, 1);
+    }
+    &:nth-child(4) {
+      animation-delay: $time * .75;
+      background-color: rgba(50, 105,84, 1);
+    }
+  }
+}
+
+@keyframes loading-4 {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,71 @@
+@use '../../global' as g;
+/* 各セクションのH2見だし */
+.c-title{
+    display:block;
+    color: g.$color-perple;
+    //white-space:nowrap;
+    @include g.fz(60, 60,bold );
+    @include g.ls( 5 );
+    &.--white{
+        color : g.$color-white;
+    }
+    &.--black{
+        color : g.$color-black;
+    }
+    //  最小の
+    &.min{ @include g.fz(22, 25.3, bold ); }
+    //  小さいの
+    &.sm{ @include g.fz(42, 42, bold ); }
+    //  中くらいの
+    &.--mid{
+        @include g.fz(48, 48, bold );
+        @include g.ls( 10 );
+    }
+    //  section title
+    &.--st{
+        @include g.fz(64, 64, 400 );
+        @include g.ls( 0 );
+    }
+    //  regular
+    &.--reg{
+        @include g.fz(64, 64, 400 );
+        @include g.ls( 0 );
+    }
+    //  でかいの
+    &.--big{
+        @include g.fz(108, 108, bold );
+        @include g.ls( 0 );
+    }
+}
+
+
+@include g.mq('-md') {
+
+.c-title{
+    @include g.fz(32, 32 );
+    &.min{
+        //@include g.fz(18, 22, bold );
+        @include g.fz(18, 20.7, 400 );
+    }
+    &.sm{
+        @include g.fz(30, 30, bold );
+    }
+    //  中くらいの
+    &.--mid{
+        @include g.fz(26, 26, bold );
+        @include g.ls( 10 );
+    }
+    //  section title
+    &.--st{
+        @include g.fz(40, 40, 400 );
+        @include g.ls( 0 );
+    }
+
+    &.--big{
+        @include g.fz(56, 56, bold );
+        @include g.ls( 0 );
+    }
+
+}
+
+}

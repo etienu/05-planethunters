@@ -1,0 +1,95 @@
+@use '../../global' as g;
+//------------------------------------------------
+//    top- セクション08 - CTA
+//------------------------------------------------
+.p-cta {
+    position:relative;
+    padding-top: 0px;
+    padding-bottom : 0px;
+    display:flex;
+    flex-direction:column;
+    .p-cta__inner {
+        max-width: 100%;
+        width: 100%;
+        margin : auto;
+        display:flex;
+        flex-direction:column;
+        align-items: flex-start;
+        picture{
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1800/462;
+        }
+    }
+    .p-cta__content{
+        width: 100%;
+        background-color : g.$color-pink;
+        display:flex;
+        flex-direction : column;
+        align-items: center;
+        padding: 50px 0;
+    }
+    .p-cta__title{
+        @include g.fz(20,20);
+        @include g.ls(5);
+        
+        color : g.$color-white;
+        text-align:left;
+        .pink{
+            color :g.$color-pink;
+            margin-top :10px;
+        }
+    }
+    .p-cta__buttonwrapper{
+        margin-top : 15px;
+    }
+}
+
+
+//----------------------------------------
+//  レスポンシブ
+//----------------------------------------
+//----------------------------------------
+//  PC版のみのCSS 768px以上
+//----------------------------------------
+@include g.mq('md-') {
+}
+
+@include g.mq('-xl') {
+}
+
+@include g.mq('-lg') {
+}
+
+//----------------------------------------
+//  SP 767以下
+//----------------------------------------
+@include g.mq('-md') {    
+.p-cta {
+    .p-cta__inner {
+        picture{
+            width: 100%;
+            height: auto;//180px;
+            aspect-ratio: 375/180;
+        }
+    }
+    .p-cta__content{
+        padding: 30px 0;
+    }
+    .p-cta__title{
+        @include g.fz(20,20);
+        @include g.ls(5);
+        
+        color : g.$color-white;
+        text-align:left;
+        .pink{
+            color :g.$color-pink;
+            margin-top :10px;
+        }
+    }
+    .p-cta__buttonwrapper{
+        margin-top : 15px;
+    }
+}
+    
+}

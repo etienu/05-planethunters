@@ -1,0 +1,75 @@
+@use '../../global' as g;
+//------------------------------------------------
+//    セクション - フッター
+//------------------------------------------------
+.p-footer {
+    width: 100%;
+    background-color : g.$color-black;
+
+    .p-footer__inner {
+        width: 100%;
+        margin : auto;
+        margin-top: 54px;
+        margin-bottom:70px;
+        max-width: min( calc( 100% - 40px ),  g.$layout-width-inner );
+        display: flex;
+        flex-direction :column;
+        justify-content: flex-start;
+        color : g.$color-white;
+    }
+    .p-footer__copylight{
+        margin:0;
+        margin-top : 17px;
+        display:flex;
+        justify-content: center;
+        small{
+            @include g.fz(16,18.4);
+            @include g.ls(5);
+        }
+    }
+}
+
+
+
+//----------------------------------------
+//  レスポンシブ
+//----------------------------------------
+@include g.mq('-lg') {
+}
+
+@include g.mq('-md') {
+.p-footer {
+    .inner {
+        margin-top: 50px;
+        margin-bottom:50px;
+        max-width: calc( 100% - 40px );
+    }
+    .p-footer__menulists{
+        display:flex;
+        flex-direction:row;
+        gap :25px;
+        .listitem{
+            a{
+                @include g.fz(12,12);
+                @include g.ls(5);
+                transition: opacity 0.3s;
+                &:hover{
+                    cursor:pointer;
+                    opacity : 0.7;
+                }
+            }
+        }
+    }
+    .p-footer__copylight{
+        margin-top : 0px;
+        picture{
+            width: 87px;
+            height: 18.4px;
+            img{
+                object-fit : contain;
+            }
+        }
+    }
+}
+
+}

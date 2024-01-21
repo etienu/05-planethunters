@@ -1,0 +1,13 @@
+//-------------------------------------------
+//  汎用セクション
+//-------------------------------------------
+.l-section {
+    position: relative;
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    //  セクションによって隠したくない時もある為
+    &.ofh{
+        overflow: hidden;
+    }
+}

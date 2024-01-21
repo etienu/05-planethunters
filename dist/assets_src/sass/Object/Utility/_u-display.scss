@@ -1,0 +1,93 @@
+@use '../../global' as g;
+/*--------------------------------------------------
+    u-display.scss
+    表示のON/OFF
+--------------------------------------------------*/
+
+.u-display__inline {
+    display: inline;
+}
+
+.u-display__inline-block {
+    display: inline-block;
+}
+
+.u-display__block {
+    display: block;
+}
+
+.u-display__sp {
+    @include g.mq('md-') {
+        display: none !important;
+    }
+}
+
+.u-display__pc {
+    @include g.mq('-lg') {
+        display: none !important;
+    }
+}
+
+.u-display__tab {
+    @include g.mq('-md') {
+        display: none !important;
+    }
+    @include g.mq('xl-') {
+        display: none !important;
+    }
+}
+
+.u-display__tab-pc {
+    @include g.mq('-md') {
+        display: none !important;
+    }
+}
+
+.u-display__sp-tab {
+    //  992より上なら非表示
+    @include g.mq('lg-') {
+        display: none !important;
+    }
+}
+
+.u-hidden__sp {
+    @include g.mq('-md') {
+        display: none !important;
+    }
+}
+
+.u-hidden__pc {
+    @include g.mq('md-') {
+        display: none !important;
+    }
+}
+
+.u-hidden__pc2 {
+    @include g.mq('xxl-') {
+        display: none !important;
+    }
+}
+
+.u-hidden__tab {
+    @include g.mq('md-lg') {
+        display: none !important;
+    }
+}
+
+.u-hidden__tab-pc {
+    @include g.mq('md-') {
+        display: none !important;
+    }
+}
+
+.u-hidden__sp-tab {
+    @include g.mq('-lg') {
+        display: none !important;
+    }
+}
+
+.u-hidden__sp-tab2 {
+    @include g.mq('-xl') {
+        display: none !important;
+    }
+}

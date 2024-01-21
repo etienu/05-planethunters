@@ -1,0 +1,200 @@
+@use 'sass:math';
+
+/* 画面幅などの固定変数を使用 */
+@use '../variable' as g;
+
+/* --------------------------------
+// 単位をのぞいた数値を返します。
+// https://qiita.com/yuusuke510/items/9053ccf48cda4590ed7f
+// --------------------------------*/
+@function strip-unit($number) {
+    @if type-of($number)=='number' and not unitless($number) {
+        @return math.div($number, ($number * 0 + 1));
+    }
+    @return $number;
+}
+
+
+// 03__フォントサイズとラインハイトまとめて指定
+// ----------------------------------------------------------
+@mixin fz($size, $height: false, $weight: false) {
+	font-size: #{$size}px;
+	@if $weight {
+		font-weight: $weight;
+	}
+	@if $height {
+		line-height: calc($height / $size);
+	}
+}
+
+@mixin fzr($size, $height: false, $weight: false) {
+	font-size: math.div($size, 10) * 1rem;
+
+	@if $weight {
+		font-weight: $weight;
+	}
+
+	@if $height {
+		line-height: calc($height / $size);
+	}
+}
+
+@mixin ls( $per ) {
+    //$perpx : calc($per / 10); //  px
+    $perpx : calc($per / 100);   //  em( figma = 1/100 em )
+    //$perpx : calc($per / 1000);   //  em( XD = 1/1000 em )
+    @if $per == 0 {
+        letter-spacing: 0;
+    }
+    @else {
+    //    letter-spacing: #{$perpx}px;
+        letter-spacing: #{$perpx}em;
+    }
+}
+
+
+/* ------------------------------------------------
+// px->rem変換
+// $size : px
+// ------------------------------------------------*/
+$baseFontSize: 16;
+@function rem($size) {
+    $csize: calc( $size / $baseFontSize);
+    @return $csize * 1rem;
+}
+
+/* ------------------------------------------------
+// px-> % 変換
+// $px : 計算したい数値
+// $pw : 親要素幅(parent width)
+// 15 / 110 = 0.1363 = 13.6%
+// ------------------------------------------------*/
+@function per($px, $pw ) {
+    $per: calc( ($px / $pw) * 100 );
+    @return $per * 1%;
+}
+
+/* ------------------------------------------------
+// px->vw変換
+// $size : px
+// $viewport : デフォルト引数にカンプ幅を入れる
+// ------------------------------------------------*/
+@function vw($size, $viewport:1440) {
+    $rate: calc( 100 / $viewport);
+    @return $rate * $size * 1vw;
+}
+
+@function vwsp($size, $viewport:375) {
+    @return vw($size, $viewport);
+}
+
+/* ------------------------------------------------
+// 最大値指定
+// ------------------------------------------------*/
+@function vwmax($size, $viewport:1440) {
+    $vp: $viewport;
+    $rate: calc( 100 / $vp);
+    $retvw: $rate * $size * 1vw;
+    $retpx: $size * 1px;
+
+    /*  数値が0以下のマイナス値ならmax( 数値, 最小 )で最小値設定*/
+    @if $retpx <=0 {
+        $ret: max( $retvw, $retpx);
+        @return $ret;
+    }
+
+    /*  数値が1以上のプラス値ならmin( 数値, 最大 )で最大値設定*/
+    @else if 0 < $retpx {
+        $ret: min( $retvw, $retpx);
+        @return $ret;
+    }
+}
+
+@function vwmaxsp($size, $viewport:375) {
+    @return vwmax($size, $viewport);
+}
+
+/* ------------------------------------------------
+// PC用 
+// PCサイズ(1440px)基準、最小値・基準値(幅1440px時のサイズ)・最大値のclamp処理*/
+@function vwclamp($minsize, $nowsize, $maxsize, $viewport:1440) {
+    $vp: $viewport;
+    $rate: calc( 100 / $vp);
+    $retvw: $rate * $nowsize * 1vw; /* 基準値が最大 */
+    $minpx: $minsize * 1px;
+    $maxpx: $maxsize * 1px;
+    $ret: clamp( $minpx, $retvw, $maxpx);
+    @return $ret;
+}
+
+/* --------------------------------
+// SP用 
+// 最小基準のvwclamp処理
+// SPサイズ(375px)基準、最小値・基準値(幅375px時のサイズ)・最大値のclamp処理*/
+@function vwclampsp($minsize, $nowsize, $maxsize, $viewport:375) {
+    @return vwclamp( $minsize, $nowsize, $maxsize, $viewport );
+}
+
+/* ------------------------------------------------
+// figmaとXDのline-heightはそのまま反映するのではなく
+// 行間の数値÷font-size
+// 行間50、文字サイズ36なら50÷36=1.38
+// line-height:1.38となる
+// $i_lineheight : 行間
+// $i_fontsize   : フォントサイズ
+// ------------------------------------------------*/
+@function lh($i_lineheight, $i_fontsize) {
+    @return calc( $i_lineheight / $i_fontsize) * 1px;
+}
+
+@function lhvw($i_lineheight, $i_fontsize, $viewport:1440) {
+    $rate: calc( 100 / $viewport);
+    $size: calc( $i_lineheight / $i_font-size);
+    @return $rate * $size * 1vw;
+}
+
+
+/* ============================================================================
+// SVGをBase64コードに変換する
+// [Html] SVG塗りつぶしの色をBackground-Imageとして扱うときに変更する
+// https://code.i-harness.com/ja/q/cbfa3c
+// ============================================================================*/
+@function str-replace($string, $search, $replace: '') {
+    $index: str-index($string, $search);
+    @if $index {
+        @return str-slice($string, 1, $index - 1)+$replace+str-replace( str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+    @return $string;
+}
+
+@function url-encode($string) {
+    $map: ( '%': '%25', '<': '%3C', '>': '%3E', ' ': '%20', '!': '%21', '*': '%2A', ''': '%27', ''': '%22', '(': '%28', ')': '%29', ';': '%3B', ':': '%3A', '@': '%40', '&': '%26', '=': '%3D', '+': '%2B', '$': '%24', ',': '%2C', '/': '%2F', '?': '%3F', '#': '%23', '[': '%5B', ']': '%5D');
+    $new: $string;
+    @each $search,
+    $replace in $map {
+        $new: str-replace($new, $search, $replace);
+    }
+    @return $new;
+}
+
+@function inline-svg($string) {
+    @return url('data:image/svg+xml;charset=utf8,#{url-encode($string)}');
+}
+
+
+/* --------------------------------------------------------------------
+//
+// background-imageをwebp対応かどうかによって出し分けするmixin
+//
+// --------------------------------------------------------------------*/
+$webpClassName: '.is-webp';
+$noWebpClassName: '.is-no-webp';
+
+@mixin webpBg($selector, $filePath, $fileExtension: 'jpg') {
+    #{$noWebpClassName} #{$selector} {
+        background-image: url('#{$filePath}.#{$fileExtension}');
+    }
+    #{$webpClassName} #{$selector} {
+        background-image: url('#{$filePath}.webp');
+    }
+}

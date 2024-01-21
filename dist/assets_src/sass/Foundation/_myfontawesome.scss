@@ -1,0 +1,290 @@
+/*!
+ * Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ * Copyright 2023 Fonticons, Inc.
+ *
+ * all.cssの読み込みが重すぎるので必用な物のみ抜粋
+ * @see https://www.volleyballer.jp/sango_fontawesome_css_weight_reduction/
+ */
+
+.fa {
+    font-family: var(--fa-style-family, 'Font Awesome 6 Free');
+    font-weight: var(--fa-style, 900);
+}
+
+.fa,
+.fa-classic,
+.fa-sharp,
+.fas,
+.fa-solid,
+.far,
+.fa-regular,
+.fab,
+.fa-brands {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: var(--fa-display, inline-block);
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-rendering: auto;
+}
+
+.fas,
+.fa-classic,
+.fa-solid,
+.far,
+.fa-regular {
+    font-family: 'Font Awesome 6 Free';
+}
+
+.fab,
+.fa-brands {
+    font-family: 'Font Awesome 6 Brands';
+}
+
+.fa-1x {
+    font-size: 1em;
+}
+
+.fa-2x {
+    font-size: 2em;
+}
+
+.fa-3x {
+    font-size: 3em;
+}
+
+.fa-4x {
+    font-size: 4em;
+}
+
+.fa-5x {
+    font-size: 5em;
+}
+
+.fa-6x {
+    font-size: 6em;
+}
+
+.fa-7x {
+    font-size: 7em;
+}
+
+.fa-8x {
+    font-size: 8em;
+}
+
+.fa-9x {
+    font-size: 9em;
+}
+
+.fa-10x {
+    font-size: 10em;
+}
+
+.fa-2xs {
+    font-size: 0.625em;
+    line-height: 0.1em;
+    vertical-align: 0.225em;
+}
+
+.fa-xs {
+    font-size: 0.75em;
+    line-height: 0.08333em;
+    vertical-align: 0.125em;
+}
+
+.fa-sm {
+    font-size: 0.875em;
+    line-height: 0.07143em;
+    vertical-align: 0.05357em;
+}
+
+.fa-lg {
+    font-size: 1.25em;
+    line-height: 0.05em;
+    vertical-align: -0.075em;
+}
+
+.fa-xl {
+    font-size: 1.5em;
+    line-height: 0.04167em;
+    vertical-align: -0.125em;
+}
+
+.fa-2xl {
+    font-size: 2em;
+    line-height: 0.03125em;
+    vertical-align: -0.1875em;
+}
+
+.fa-inverse {
+    color: var(--fa-inverse, #fff);
+}
+
+//---- 必用アイコンの設定 ------------------------------------
+//  上矢印 ^
+.fa-chevron-up::before {
+    content: '\f077';
+}
+
+//  SERVICEで使用
+//  PC
+.fa-laptop-code::before {
+    content: '\f5fc';
+}
+
+//  ワードプレス
+.fa-wordpress:before {
+    content: '\f19a';
+}
+
+//  アンドロイド
+.fa-mobile-android-alt::before {
+    content: '\f3cf';
+}
+
+//  外部リンクアイコン
+.fa-external-link-square-alt::before {
+    content: '\f360';
+}
+
+//  外部リンクアイコン
+.fa-external-link-alt::before {
+    content: '\f35d';
+}
+
+//  メール
+.fa-envelope::before {
+    content: '\f0e0';
+}
+
+//  カート
+.fa-cart-shopping::before {
+    content: '\f07a';
+}
+
+//  右矢印ブロック →] // × regular  solid
+.fa-arrow-right-to-bracket::before {
+    content: '\f090';
+}
+  
+//<i class='fa-regular fa-arrow-right-to-bracket'></i>
+
+
+//----------------------------------------
+// SNS
+// twitter
+.fa-square-twitter:before {
+    content: '\f081';
+}
+
+.fa-twitter-square:before {
+    content: '\f081';
+}
+
+.fa-twitter:before {
+    content: '\f099';
+}
+
+// instagram
+.fa-square-instagram:before {
+    content: '\e055';
+}
+
+.fa-instagram-square:before {
+    content: '\e055';
+}
+
+.fa-instagram:before {
+    content: '\f16d';
+}
+
+// facebook
+.fa-facebook-f:before {
+    content: '\f39e';
+}
+
+.fa-facebook-messenger:before {
+    content: '\f39f';
+}
+
+.fa-square-facebook:before {
+    content: '\f082';
+}
+
+.fa-facebook-square:before {
+    content: '\f082';
+}
+
+.fa-facebook:before {
+    content: '\f09a';
+}
+
+// YOUTUBE
+.fa-square-youtube:before {
+    content: '\f431';
+}
+
+.fa-youtube-square:before {
+    content: '\f431';
+}
+
+.fa-youtube:before {
+    content: '\f167';
+}
+
+// LINE
+.fa-line:before {
+    content: '\f3c0';
+}
+
+
+
+//----------------------------------------
+@font-face {
+    font-family: 'Font Awesome 6 Brands';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url('../webfonts/fontawesome/fa-brands-400.woff2') format('woff2'), url('../webfonts/fontawesome/fa-brands-400.ttf') format('truetype');
+}
+
+.fab,
+.fa-brands {
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Font Awesome 6 Free';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url('../webfonts/fontawesome/fa-regular-400.woff2') format('woff2'), url('../webfonts/fontawesome/fa-regular-400.ttf') format('truetype');
+}
+
+.far,
+.fa-regular {
+    font-weight: 400;
+}
+
+ :root,
+ :host {
+    --fa-style-family-classic: 'Font Awesome 6 Free';
+    --fa-font-solid: normal 900 1em/1 'Font Awesome 6 Free';
+}
+
+@font-face {
+    font-family: 'Font Awesome 6 Free';
+    font-style: normal;
+    font-weight: 900;
+    font-display: block;
+    src: url('../webfonts/fontawesome/fa-solid-900.woff2') format('woff2'), url('../webfonts/fontawesome/fa-solid-900.ttf') format('truetype');
+}
+
+//  weightが900に強制されて↑を使用する
+.fas,
+.fa-solid {
+    font-weight: 900;
+}

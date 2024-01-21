@@ -1,0 +1,164 @@
+@use '../../global' as g;
+/* フォーム */
+.c-form{
+    display:block;
+    width: 100%;
+    color: g.$color-white;
+    @include g.fz(16, 18.4 );
+    @include g.ls( 5 );
+    border-radius : 20px;
+    background-color : g.$color-black;
+    border : 5px solid g.$color-perple; 
+    dl{
+        text-align : left;
+        //padding : 90px 160px 80px;
+        padding : 0px 153px 0px;
+        .row{
+            &:nth-child(n+2){
+                margin-top: 30px;
+            }
+            dt{
+                font-weight: bold;
+                position : relative;
+                &.required{
+                    &:after{
+                        position : absolute;
+                        content : "*必須";
+                        margin-left: 9px;
+                        bottom : 0;
+                        @include g.fz(11.2, 12.9, bold );
+                        @include g.ls(5);
+                        color : g.$color-perple;
+                    }
+                }
+                label{
+                    span{
+                        @include g.fz(12,13.8, bold );
+                        @include g.ls(5);
+                        margin-left: 6px;
+                    }
+                }
+            }
+            dd{
+                margin-top: 10px;
+                ul{
+                    display: flex;
+                    flex-direction:row;
+                    gap: 35px;
+                    li{
+                        margin-left:1px
+                        input{
+
+                        }
+                        label{
+                            margin-left:1px;
+                        }
+                    }
+                }
+                input[type="text"],
+                input[type="email"],
+                input[type="tel"],
+                textarea,select{
+                    background-color: g.$color-white;
+                    color :g.$color-black;
+                    padding : 8px;
+                    border-radius: 6px;
+                    border: 1px solid g.$color-bordergray;
+                    @include g.fz(16,18.4);
+                    @include g.ls(5);
+                    text-align:left;
+                    width: 100%;
+                    &.w2{
+                        max-width: 200px;
+                    }
+                    &.w3{
+                        max-width: 300px;
+                    }
+                    &.w6{
+                        max-width: 600px;
+                    }
+                }
+                input{
+                }
+                textarea{
+                    height:200px;
+                }
+                select{
+                    &:hover{
+                        cursor:pointer;
+                    }
+                    .select__placeholder{
+                    }
+                }
+            }
+        }
+    }
+    .c-form__submitwrapper{
+        display:flex;
+        justify-content: center;
+        margin-top: 50px;
+    }
+}
+
+
+
+
+@include g.mq('-md') {
+    .c-form{
+        @include g.fz(14, 16 );
+        border-radius : 16px;
+        border : 3px solid g.$color-perple; 
+        dl{
+            text-align : left;
+            padding : 0px 24px 0px;
+            .row{
+                &:nth-child(n+2){
+                    margin-top: 30px;
+                }
+                dt{
+                    &.required{
+                        &:after{
+                            margin-left: 6px;
+                            bottom : 1px;
+                            @include g.fz(10, 10, bold );
+                        }
+                    }
+                    label{
+                        span{
+                            //@include g.fz(12,13.8, bold );
+                        }
+                    }
+                }
+                dd{
+                    margin-top: 10px;
+                    ul{
+                        display: flex;
+                        //flex-direction:column;
+                        flex-wrap: wrap;
+                        gap: 12px;
+                        padding-left: 10px;
+                        li{
+                            label{
+                                padding-left: 4px;
+                            }
+                        }
+                    }
+                    input[type="text"],
+                    input[type="email"],
+                    input[type="tel"],
+                    textarea,select{
+                        @include g.fz(16,18.4);
+                        @include g.ls(5);
+                        &.w2,&.w3,&.w6{
+                            max-width: none;
+                        }
+                    }
+                }
+            }
+        }
+        .c-form__submitwrapper{
+            margin-top: 30px;
+        }
+    }
+    
+}

@@ -1,0 +1,78 @@
+@use '../global' as g;
+
+/*--------------------------------------------------
+    ヘッダー
+--------------------------------------------------*/
+/* ----------------------------------------
+// ヘッダー枠
+// 追従するfixedの枠組み。内容はp-headerbar
+// ----------------------------------------*/
+.l-header {
+    top: 0; /*  0にしないと上に隙間ができる */
+    left: 0;
+    right: 0;
+    margin: 0;
+    width: 100%;
+    z-index: 500;
+    position: relative;
+    height: g.$header-height;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: transparent;
+    transition: opacity 0.2s;
+    .l-header__buttonswrapper {
+        text-shadow: none;
+    }
+
+    /*  初期からfixed*/
+    position: fixed;
+
+    /*  フラグが立っている場合は上部に固定表示*/
+    &:not(&.open) {
+        &[data-float="true"] {
+            //position: fixed;
+            color: black;
+            text-shadow: none;
+        }
+    }
+    &.dwis-active {
+        position: fixed;
+        top: 0;
+    }
+}
+
+/* --------------------------------------------
+// ※デザインによって必要な場合
+// fixedでヘッダー分の空白を作る為に
+// ボディにヘッダーの幅分マージン入れる
+// --------------------------------------------*/
+body {  
+    &[data-float="true"]{
+/*      ヘッダーが透過せず、TOPイメージがヘッダーの下から始まっている場合*/
+        //margin-top: g.$header-height;
+
+/*      ヘッダーが最初から透過、TOPイメージがY0から始まっている場合*/
+/*      margin-top: 0;*/
+    }
+    &.dwis-active {
+        position: fixed;
+    }
+}
+
+
+/* ============================================
+// レスポンシブ
+// ============================================*/
+@include g.mq('-md') {
+/*  ヘッダーバーの高さ調整*/
+    .l-header {
+        height: g.$header-height-sp;
+    }
+    body {
+/*      レスポンシブ時ヘッダーと被らせない場合*/
+        &.l-header__float {
+            //margin-top: calc( g.$header-height-sp + g.$header-second-height-sp );
+        }
+    }
+}

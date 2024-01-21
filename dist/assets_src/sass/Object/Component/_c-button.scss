@@ -1,0 +1,106 @@
+@use '../../global' as g;
+//------------------------------------------------
+//    ボタン
+//------------------------------------------------
+.c-button {
+    display: inline-block;
+    position : relative;
+    padding : 17px 72px;
+    border: 1px solid g.$color-blue;
+    @include g.fz( 15,15 );
+    color : g.$color-blue;
+    &.btn__ra{
+        &:after{
+            position:absolute;
+            content:"▶";
+            right: 20px;
+            @include g.fz( 10,15 );
+            transition : transform 0.3s;
+        }
+    }
+    transition : background-color 0.3s, color 0.3s;
+    &:hover{
+        cursor:pointer;
+        background-color : g.$color-blue;
+        color : g.$color-white;
+        &.btn__ra{
+            &:after{
+                transform : translateX( 4px );
+            }
+        }    
+    }
+}
+
+
+.c-button__cv {
+    display: inline-block;
+    position : relative;
+    padding : 30px 49px;
+    background : g.$color-pink;
+    border-radius: 50px;
+    @include g.fz( 18,18,bold );
+    @include g.ls( 5 );
+    color : g.$color-white;
+    transition : transform 0.3s, opacity 0.3s,  box-shadow 0.3s;
+    transform : translate( 0, 0px );
+    &.sm{
+        padding : 24px 68px;
+    }
+    &.submit{
+        padding : 24px 112px;
+    }
+    &.--white{
+        background : g.$color-white;
+        color : g.$color-pink;
+    }
+    &.--header{
+        @include g.fz( 16,16,bold );
+        @include g.ls( 5 );
+        padding : 12px 15px;
+    }
+    &:hover{
+        cursor:pointer;
+        opacity: 0.8;
+    }
+}
+
+
+//----------------------------------------
+//  レスポンシブ
+//----------------------------------------
+//----------------------------------------
+//  PC版のみのCSS 768px以上
+//----------------------------------------
+@include g.mq('md-') {
+}
+
+//----------------------------------------
+//  SP 767以下
+//----------------------------------------
+@include g.mq('-md') {
+.c-button {
+    display: block;
+    width: 100%;
+    padding : 18px 72px;
+}        
+
+.c-button__cv {
+    display:block;
+    padding : 20px 26px;
+    border-radius: 50px;
+    @include g.fz( 12,12,bold );
+    @include g.ls( 5 );
+    &.--header{
+        padding : 12px 15px;
+    }
+    &.sm{
+        padding : 16px 30px;
+    }
+    &.--spwide{
+        //width: 100%;
+        padding : 20px 61.5px;
+    }
+
+}
+
+}

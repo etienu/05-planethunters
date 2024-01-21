@@ -1,0 +1,186 @@
+@use '../../global' as g;
+//------------------------------------------------
+//    top- セクション03 - trainer
+//------------------------------------------------
+.p-trainer {
+    position:relative;
+    padding-top: 0px;
+    padding-bottom : 0px;
+    display:flex;
+    flex-direction:column;
+    .p-trainer__body {
+        width: 100%;
+        background-color: g.$color-pink;
+        padding-bottom: 40px;
+    }
+    .p-trainer__inner {
+        max-width: min( calc(100% - 40px), calc(g.$layout-width-inner) );
+        width: 100%;
+        margin : auto;
+        display:flex;
+        flex-direction:column;
+        align-items: flex-start;
+    }
+    .p-trainer__title{
+        @include g.fz(20,20);
+        @include g.ls(5);
+        color : g.$color-white;
+        text-align:left;
+        span{
+            margin-bottom :11px;
+        }
+    }
+    .p-trainer__tabwrapper{
+        width: 100%;
+        margin-top : 59px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        .p-trainer__tabs{
+            width: 100%;
+            display:flex;
+            flex-direction:row;
+            .p-trainer__tab{
+                width: 100%;
+                height: 46px;
+                @include g.fz(18,20.7);
+                @include g.ls(0);
+                color:g.$color-white;
+                &[data-state="open"]{
+                    border-bottom : 2px solid g.$color-white;
+                }
+            }
+        }
+        .p-trainer__trainergroup{
+            //display: none;
+            display:flex;
+            flex-direction:row;
+            //justify-content: space-between;
+            gap:15px;   //  (1110 - (360*3))/2
+            min-height: 467px;
+            overflow:hidden;
+        }
+        .p-trainer__item{
+            width: 360px;//g.vw(360);
+            height: 467px;//g.vw(467);
+            aspect-ratio: 360/467;
+            background-color: g.$color-white;
+            border-radius: 10px;
+            overflow: hidden;
+            &.--empty{
+                display:none;
+                //background-color: transparent;
+            }
+            .p-trainer__image{
+                display:block;
+                width: 100%;
+                height: 350px;
+                aspect-ratio: 360/350;
+                img{
+                    width: 100%;//360px;//g.vw(360);
+                    height: 100%;//g.vw(350);
+                    object-position: 0% 0%;
+                }
+            }
+            .p-trainer__text{
+                padding:20px;
+                width: 100%;
+                text-align:left;
+                @include g.fz(15,25.5);
+                @include g.ls(0);
+            }
+        }        
+    }
+
+}
+
+
+//----------------------------------------
+//  レスポンシブ
+//----------------------------------------
+//----------------------------------------
+//  PC版のみのCSS 768px以上
+//----------------------------------------
+@include g.mq('md-') {
+}
+
+@include g.mq('-xl') {
+}
+
+@include g.mq('-lg') {
+}
+
+//----------------------------------------
+//  SP 767以下
+//----------------------------------------
+@include g.mq('-md') {
+.p-trainer {
+    .p-trainer__body {
+        padding-bottom: 40px;
+    }
+    .p-trainer__inner {
+        max-width: calc(100% - 60px);
+    }
+    .p-trainer__title{
+        @include g.fz(14,14);
+        @include g.ls(0);
+        span{
+            margin-bottom :10px;
+        }
+    }
+    .p-trainer__tabwrapper{
+        width: 100%;
+        margin-top : 59px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        .p-trainer__tabs{
+            width: 100%;
+            display:flex;
+            flex-direction:row;
+            .p-trainer__tab{
+                width: 100%;
+                height: 34px;
+                @include g.fz(16,18.4);
+                @include g.ls(0);
+            }
+        }
+        .p-trainer__swiper{
+            width: 100%;
+            height: auto;
+        }
+        .p-trainer__trainergroup{
+            //display:flex;
+            flex-direction:column;
+        }
+        .p-trainer__item{
+            width: 100%;
+            height: auto;
+            aspect-ratio:auto;
+            &.--empty{
+                display:none;
+            }
+            .p-trainer__image{
+                display:block;
+                width: 100%;
+                height: 350px;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .p-trainer__text{
+                padding:20px;
+                width: 100%;
+                text-align:left;
+                @include g.fz(14,22.4);
+                @include g.ls(0);
+            }
+        }        
+    }
+
+}
+    
+    
+    
+}

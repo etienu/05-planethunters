@@ -1,0 +1,187 @@
+@use '../../global' as g;
+//------------------------------------------------
+//    top- セクション02 - about
+//------------------------------------------------
+.p-about {
+    position:relative;
+    //background-color : g.$color-black;
+    padding-top: 110px;
+    padding-bottom : 60px;
+    .p-about__inner {
+        max-width: 100%;//min( calc(100% - 40px), calc(g.$layout-width-inner) );
+        //max-width: min( calc(100% - 40px), calc(g.$layout-width-inner) );
+        //max-width: min( calc( 100% - 256pxa ),  g.$layout-width-inner  );
+        width: 100%;
+        margin : auto;
+        display:flex;
+        flex-direction:column;
+        align-items: center;
+    }
+    .p-about__title{
+        @include g.fz(20,20);
+        @include g.ls(5);
+        color : g.$color-white;
+        span{
+            margin-bottom :11px;
+        }
+    }
+
+    .p-about__lists{
+        display:flex;
+        flex-direction:column;
+        gap: 100px;
+        .listitem{
+            display:flex;
+            flex-direction:row;
+            align-items: flex-end;
+            width: 100%;
+            .p-about__texts{
+                z-index: 1;
+                order : 1;
+                text-align:left;
+                //max-width: min( calc(100% - 40px ), g.vw(555) );
+                max-width: 555px;
+                background-color : g.$color-white;
+                border-radius: 8px;
+                padding: 60px;
+                box-shadow: 0 0 4px RGBA(0,0,0,0.4);
+                margin-right: 20px;
+                margin-left:-85px;
+                margin-bottom:-10px;
+                .title{
+                    .c-title{
+
+                    }
+                    .c-subtitle{
+                        display:block;
+                        margin-top:20px;
+                    }
+                }
+                .lead{
+                    @include g.fz(15,27);
+                    @include g.ls(1);
+                    margin-top:15px;
+                    width: 100%;
+                }
+            }
+            .p-about__image{
+                z-index: 0;
+                order :0;
+                img{
+                    width: g.vw(950);
+                }
+            }
+            &.--rev{
+                .p-about__texts{
+                    order : 0;
+                    margin-left:20px;
+                    margin-right:-85px;
+                }
+                .p-about__image{
+                    order : 1;
+                }
+            }
+        }
+    }
+    .p-about__buttonwrapper{
+        margin-top: 70px;
+    }
+
+}
+
+
+//----------------------------------------
+//  レスポンシブ
+//----------------------------------------
+//----------------------------------------
+//  PC版のみのCSS 768px以上
+//----------------------------------------
+@include g.mq('md-') {
+}
+
+@include g.mq('-xl') {
+}
+
+@include g.mq('-lg') {
+}
+
+//----------------------------------------
+//  SP 767以下
+//----------------------------------------
+@include g.mq('-md') {
+.p-about {
+    position:relative;
+    padding-top: 0px;
+    padding-bottom : 0px;
+    .p-about__inner {
+        max-width: 100%;
+        width: 100%;
+        margin : auto;
+        display:flex;
+        flex-direction:column;
+        align-items: center;
+    }
+    .p-about__title{
+    }
+
+    .p-about__lists{
+        display:flex;
+        flex-direction:column;
+        gap: 30px;
+        .listitem{
+            display:flex;
+            flex-direction:column;
+            align-items: center;
+            width: 100%;
+            .p-about__texts{
+                z-index: 1;
+                order : 1;
+                text-align:left;
+                max-width: calc(100% - 40px );
+                padding: 40px 30px 30px;
+                //box-shadow: 0 0 4px RGBA(0,0,0,0.4);
+                margin : -10px 0 0 0;
+                .title{
+                    .c-title{
+
+                    }
+                    .c-subtitle{
+                        display:block;
+                        margin-top:20px;
+                        @include g.fz(22,33,bold);
+                        @include g.ls(0);
+                    }
+                }
+                .lead{
+                    @include g.fz(14,23.8);
+                    @include g.ls(0);
+                    margin-top:15px;
+                    width: 100%;
+                }
+            }
+            .p-about__image{
+                z-index: 0;
+                order :0;
+                img{
+                    width: 100%;
+                }
+            }
+            &.--rev{
+                .p-about__texts{
+                    order : 1;
+                    margin-left:0px;
+                    margin-right:0px;
+                }
+                .p-about__image{
+                    order : 0;
+                }
+            }
+        }
+    }
+    .p-about__buttonwrapper{
+        margin-top: 40px;
+    }
+
+}
+    
+}

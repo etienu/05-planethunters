@@ -1,0 +1,104 @@
+@use '../../global' as g;
+//------------------------------------------------
+//    ボタン
+//------------------------------------------------
+.c-gotoTopButton {
+    position : fixed;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    right: 40px;
+    bottom : 40px;
+    transition : background 0.3s, color 0.3s, opacity 0.3s;
+    background : g.$color-white;
+    border: 1px solid g.$color-border-gray;
+    filter: drop-shadow(0 0 2px g.$color-border-gray );
+    z-index : 10;
+    opacity: 0;
+    pointer-events: none;
+    &:hover{
+        cursor:pointer;
+        opacity: 0.8;
+        .c-gotoTopButton__arrow{
+            transform:translate(0, 4px) rotate(45deg);    
+        }
+    }
+    &[data-disp="open"]{
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .c-gotoTopButton__inner{
+        position:relative;
+        margin: auto;
+    }
+    .c-gotoTopButton__arrow{
+        position:relative;
+        width: 20px;
+        height: 20px;
+        transform:translate(0, 8px) rotate(45deg);
+        transition : transform 0.3s;
+        &:before,
+        &:after{
+            left: 0;
+            top : 0;
+            position:absolute;
+            content:"";
+            background-color:g.$color-pink;
+        }
+        &:before{
+            width: 12px;
+            height: 2px;
+        }
+        &:after{
+            width:  2px;
+            height:12px;
+            //transform:rotate(45deg);
+        }
+    }    
+}
+
+
+
+//----------------------------------------
+//  レスポンシブ
+//----------------------------------------
+//----------------------------------------
+//  PC版のみのCSS 768px以上
+//----------------------------------------
+@include g.mq('md-') {
+}
+
+//----------------------------------------
+//  SP 767以下
+//----------------------------------------
+@include g.mq('-md') {
+.c-gotoTopButton {
+    width: 40px;
+    height: 40px;
+    right: 20px;
+    bottom : 20px;
+    .c-gotoTopButton__arrow{
+        position:relative;
+        width: 16px;
+        height: 16px;
+        &:before,
+        &:after{
+        }
+        &:before{
+            width: 8px;
+            height: 2px;
+        }
+        &:after{
+            width:  2px;
+            height:8px;
+            //transform:rotate(45deg);
+        }
+    }    
+
+}
+
+}
