@@ -5,29 +5,19 @@
 .c-button {
     display: inline-block;
     position : relative;
-    padding : 17px 72px;
-    border: 1px solid g.$color-blue;
+    padding : 8px 10px;
     @include g.fz( 15,15 );
-    color : g.$color-blue;
-    &.btn__ra{
-        &:after{
-            position:absolute;
-            content:"▶";
-            right: 20px;
-            @include g.fz( 10,15 );
-            transition : transform 0.3s;
-        }
-    }
+    color : g.$color-white;
+    border: 1px solid g.$color-blue;
+    background-color : g.$color-blue;
     transition : background-color 0.3s, color 0.3s;
+    border-radius: 4px;
+    white-space:nowrap;
     &:hover{
         cursor:pointer;
-        background-color : g.$color-blue;
+        background-color : g.$color-black;
         color : g.$color-white;
-        &.btn__ra{
-            &:after{
-                transform : translateX( 4px );
-            }
-        }    
+        opacity: 0.8;
     }
 }
 
@@ -35,32 +25,26 @@
 .c-button__cv {
     display: inline-block;
     position : relative;
-    padding : 30px 49px;
-    background : g.$color-pink;
-    border-radius: 50px;
-    @include g.fz( 18,18,bold );
+    padding : 15px 43px 15px 39px;
+    background : g.$color-key;
+    color :g.$color-black;
+    @include g.fz( 15,15,bold );
     @include g.ls( 5 );
-    color : g.$color-white;
-    transition : transform 0.3s, opacity 0.3s,  box-shadow 0.3s;
-    transform : translate( 0, 0px );
-    &.sm{
-        padding : 24px 68px;
-    }
-    &.submit{
-        padding : 24px 112px;
-    }
-    &.--white{
-        background : g.$color-white;
-        color : g.$color-pink;
-    }
+    transition : transform 0.3s, opacity 0.3s, box-shadow 0.3s;
     &.--header{
-        @include g.fz( 16,16,bold );
-        @include g.ls( 5 );
-        padding : 12px 15px;
+    }
+    &.--mv{
+        @include g.fz( 18,20,bold );
+        padding : 20px 64px;
+    }
+    &.--cta{
+        @include g.fz( 18,25,bold );
+        padding : 20px 66px;
     }
     &:hover{
         cursor:pointer;
-        opacity: 0.8;
+        //opacity: 0.8;
+        box-shadow: 0 0 16px g.$color-key;
     }
 }
 
@@ -85,22 +69,24 @@
 }        
 
 .c-button__cv {
-    display:block;
-    padding : 20px 26px;
-    border-radius: 50px;
-    @include g.fz( 12,12,bold );
+    padding : 15px 43px 15px 39px;
+    @include g.fz( 15,15,bold );
     @include g.ls( 5 );
     &.--header{
-        padding : 12px 15px;
+        display:none;
     }
-    &.sm{
-        padding : 16px 30px;
+    &.--mv{
+        @include g.fz( 16,16,bold );
+        padding : 20px 42px;
     }
-    &.--spwide{
-        //width: 100%;
-        padding : 20px 61.5px;
+    &.--cta{
+        @include g.fz( 16,16,bold );
+        padding : 20px 42px;
     }
-
+    &.--footer{
+        width: 100%;
+        //padding : 20px 42px;
+    }
 }
 
 }

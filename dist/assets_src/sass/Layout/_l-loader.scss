@@ -3,6 +3,9 @@
 //  ローディング
 //-------------------------------------------*/
 .l-loader {
+    /* 表示を一番上 */
+    z-index: 999;
+
     position: fixed;
     top: 0;
     left: 0;
@@ -16,9 +19,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    /* 表示を一番上 */
-    z-index: 999;
 
     /* 選択不可 */
     user-select: none;
@@ -44,139 +44,70 @@
     animation: blink 1s linear infinite;
 }
 
-@keyframes blink {
-    0%,
-    100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
+.trinity-rings-spinner, .trinity-rings-spinner * {
+  box-sizing: border-box;
 }
 
-.load-circle {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 10px solid rgba(255, 255, 255, 0.5);
-    border-top-color: rgba(255, 255, 255, 1);
-    animation: rotate 1s linear infinite;
+.trinity-rings-spinner {
+  height: 66px;
+  width: 66px;
+  padding: 3px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.trinity-rings-spinner .circle {
+  position:absolute;
+  display:block;
+  border-radius:50%;
+  border: 3px solid #ff1d5e;
+  opacity: 1;
 }
 
-@keyframes rotate {
-    to {
-        transform: rotate(360deg);
-    }
+.trinity-rings-spinner .circle:nth-child(1) {
+  height: 60px;
+  width: 60px;
+  animation : trinity-rings-spinner-circle1-animation 1.5s infinite linear;
+  border-width: 3px;
+}
+.trinity-rings-spinner .circle:nth-child(2) {
+  height: calc(60px * 0.65);
+  width: calc(60px * 0.65);
+  animation : trinity-rings-spinner-circle2-animation 1.5s infinite linear;
+  border-width: 2px;
+}
+.trinity-rings-spinner .circle:nth-child(3) {
+  height: calc(60px * 0.1);
+  width: calc(60px * 0.1);
+  animation:trinity-rings-spinner-circle3-animation 1.5s infinite linear;
+  border-width: 1px;
 }
 
-.load-absolute {
-    position: absolute;
-}
-
-/* ------------------------------------------------------------------------------------------------- */
-.load-5{
-    display: inline-block;
-    height: 100px;
-    margin: 50px;
-    position: relative;
-    width: 100px;
-    div{
-        width: 100px;
-        height: 100px;
-        position: absolute;
-        left: 0;
-        border: 4px solid rgba(150, 205,124, 1);
-        animation: load-5-1 1.5s infinite ease-in-out;
-        &:nth-child(1){
-            width: 60px;
-            height: 60px;
-            top: 20px;
-            left: 20px;
-            animation: load-5-2 1.5s infinite ease-in-out;
-        }
-        &:nth-child(2){
-            width: 20px;
-            height: 20px;
-            background: rgba(155, 205,124, 1);
-            top: 40px;
-            left: 40px;
-            animation: load-5-3 3s infinite ease-in-out;
-        }
-    }
-}  
-@keyframes load-5-1{
-    0%{ transform: perspective(100px) rotatex(0deg) rotatey(0deg);    }
-   50%{ transform: perspective(100px) rotatex(180deg) rotatey(0deg);    }
-  100%{ transform: perspective(100px) rotatex(180deg) rotatey(180deg);  }
-}  
-@keyframes load-5-2{
-    0%{ transform: perspective(150px) rotatex(0deg) rotatey(0deg);      }
-   50%{ transform: perspective(150px) rotatex(-180deg) rotatey(0deg);   }
-  100%{ transform: perspective(150px) rotatex(-180deg) rotatey(-180deg);}
-}  
-@keyframes load-5-3{
-    0%{ transform: perspective(100px) rotatex(0deg) rotatey(0deg); }
-   50%{ transform: perspective(100px) rotatex(0deg) rotatey(0deg);  }
-  100%{ transform: perspective(100px) rotatex(180deg) rotatey(180deg); }
-}
-
-@keyframes load-6-animation{
-  0%{
-    transform: rotate(0deg);
-  }
-  100%{
-    transform: rotate(360deg);
-  }
-}
-
-/* ------------------------------------------------------------------------------------------------- */
-$time: 0.6s;
-.loading-4 {
-  position: absolute;
-  width: 48px;
-  height: 48px;
-  left: 50%;
-  top: 50%;
-  margin: -24px 0 0 -24px;
-  span {
-    animation-name: loading-4;
-    animation-duration: $time;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    display: block;
-    margin: 2px;
-    width: 20px;
-    height: 20px;
-    float: left;
-    &:nth-child(1) {
-      animation-delay: 0s;
-      background-color: rgba(100, 155,124, 1);
-    }
-    &:nth-child(2) {
-      animation-delay: $time * .25;
-      background-color: rgba(150, 205,174, 1);
-    }
-    &:nth-child(3) {
-      clear: both;
-      float: right;
-      animation-delay: $time * .5;
-      background-color: rgba(200, 255,224, 1);
-    }
-    &:nth-child(4) {
-      animation-delay: $time * .75;
-      background-color: rgba(50, 105,84, 1);
-    }
-  }
-}
-
-@keyframes loading-4 {
+@keyframes trinity-rings-spinner-circle1-animation{
   0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
+    transform: rotateZ(20deg) rotateY(0deg);
   }
   100% {
-    opacity: 1;
+    transform: rotateZ(100deg) rotateY(360deg);
+  }
+}
+@keyframes trinity-rings-spinner-circle2-animation{
+  0% {
+    transform: rotateZ(100deg) rotateX(0deg);
+  }
+  100% {
+    transform: rotateZ(0deg) rotateX(360deg);
+  }
+}
+@keyframes trinity-rings-spinner-circle3-animation{
+  0% {
+    transform: rotateZ(100deg) rotateX(-360deg);
+  }
+  100% {
+    transform: rotateZ(-360deg) rotateX(360deg);
   }
 }

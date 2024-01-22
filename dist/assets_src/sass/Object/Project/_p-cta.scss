@@ -1,47 +1,45 @@
 @use '../../global' as g;
 //------------------------------------------------
-//    top- セクション08 - CTA
+//    top- セクション03 - CTA(Call to Action/行動喚起)
 //------------------------------------------------
 .p-cta {
     position:relative;
-    padding-top: 0px;
-    padding-bottom : 0px;
     display:flex;
     flex-direction:column;
+    .p-cta__bg{
+        position:absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .p-cta__heading{
+        padding-top :100px;
+        h2{
+            @include g.fz(64,64,bold);
+            @include g.ls(5);
+            color :g.$color-white;
+        }
+    }
     .p-cta__inner {
-        max-width: 100%;
+        padding-top:140px;
+        padding-bottom: 123px;
+        width: 100%;
+        margin : auto;
+        display:flex;
+        justify-content: center;
+    }
+    .p-cta__body {
+        max-width: min( calc(100% - 40px), calc(g.$layout-width-inner) );
         width: 100%;
         margin : auto;
         display:flex;
         flex-direction:column;
-        align-items: flex-start;
-        picture{
-            width: 100%;
-            height: auto;
-            aspect-ratio: 1800/462;
-        }
-    }
-    .p-cta__content{
-        width: 100%;
-        background-color : g.$color-pink;
-        display:flex;
-        flex-direction : column;
         align-items: center;
-        padding: 50px 0;
-    }
-    .p-cta__title{
-        @include g.fz(20,20);
-        @include g.ls(5);
-        
         color : g.$color-white;
-        text-align:left;
-        .pink{
-            color :g.$color-pink;
-            margin-top :10px;
-        }
     }
-    .p-cta__buttonwrapper{
-        margin-top : 15px;
+    .p-cta__btn{
+        margin-top : 25px;
+        padding-bottom :100px;
     }
 }
 
@@ -64,32 +62,37 @@
 //----------------------------------------
 //  SP 767以下
 //----------------------------------------
-@include g.mq('-md') {    
-.p-cta {
-    .p-cta__inner {
-        picture{
+@include g.mq('-md') {      
+    .p-cta {
+        .p-cta__bg{
+        }
+        .p-cta__heading{
+            padding-top :70px;
+            h2{
+                @include g.fz(32,32,bold);
+                @include g.ls(5);
+            }
+        }
+        .p-cta__inner {
+            padding-top:0;//140px;
+            padding-bottom: 0;//123px;
             width: 100%;
-            height: auto;//180px;
-            aspect-ratio: 375/180;
+            margin : auto;
+            display:flex;
+            justify-content: center;
         }
-    }
-    .p-cta__content{
-        padding: 30px 0;
-    }
-    .p-cta__title{
-        @include g.fz(20,20);
-        @include g.ls(5);
-        
-        color : g.$color-white;
-        text-align:left;
-        .pink{
-            color :g.$color-pink;
-            margin-top :10px;
+        .p-cta__body {
+            max-width: calc(100% - 40px);
+            width: 100%;
+            margin : auto;
+            display:flex;
+            flex-direction:column;
+            align-items: center;
+            color : g.$color-white;
         }
-    }
-    .p-cta__buttonwrapper{
-        margin-top : 15px;
-    }
-}
-    
+        .p-cta__btn{
+            margin-top : 20px;
+            padding-bottom :70px;
+        }
+    }    
 }

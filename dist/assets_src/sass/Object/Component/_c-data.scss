@@ -1,0 +1,37 @@
+@use '../../global' as g;
+//------------------------------------------------
+//    dataとCSS変数とjavascriptを使用したCSS演出
+//------------------------------------------------
+//  テキストにマーカー演出
+[data-eff="txtmarker"]{
+    //  親をrelativeに
+    --translateX:-100%;
+    --beforeOpacity:1;
+    color : transparent;
+    //opacity: 1;
+    overflow:hidden;
+    visibility: hidden;
+    background-color : transparent;
+    &:after{
+        position :absolute;
+        content:"";
+        left: 0;
+        top : 0;
+        width: 100%;
+        height: 100%;
+        background-color:g.$color-pink;
+        opacity: var(--beforeOpacity);
+        transform:translateX( var(--translateX) );
+    }
+    &[data-effstate="step1"]{
+        &:after{
+            width: 100%;
+        }
+    }
+    &[data-effstate="step2"]{
+        &:after{
+            left:100%;
+            width: 0%;
+        }
+    }
+}

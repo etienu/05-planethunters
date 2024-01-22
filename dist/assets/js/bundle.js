@@ -804,6 +804,33 @@ var buttons = /*#__PURE__*/function () {
     }
 
     //----------------------------------------
+    //  オーディオスイッチ
+    //----------------------------------------
+  }, {
+    key: "regist_audioswitch",
+    value: function regist_audioswitch(i_item, i_name) {
+      //  ボタンにクリックイベントセット
+      i_item.addEventListener("click", function () {
+        var tarid = i_item.dataset.target;
+        //console.log("[tarid]"+tarid );
+        var audio = document.querySelector(tarid);
+        //this.audioToggle( i_item,elm );
+        //console.log("[muted]"+audio.muted+" [paused]"+audio.paused+"[currentTime]"+audio.currentTime);
+        if (audio.muted || audio.paused) {
+          audio.muted = false;
+          audio.play();
+          i_item.innerHTML = 'SOUND ON<span class="material-icons">volume_up</span>';
+          i_item.classList.add("--playing");
+        } else {
+          audio.pause();
+          audio.currentTime = 0;
+          i_item.innerHTML = 'SOUND OFF<span class="material-icons">volume_off</span>';
+          i_item.classList.remove("--playing");
+        }
+      });
+    }
+
+    //----------------------------------------
     //  名称で処理の分岐
     //----------------------------------------
   }, {
@@ -812,7 +839,10 @@ var buttons = /*#__PURE__*/function () {
       //  名称で分岐
       switch (i_name) {
         case "hamburger":
-          this.regist_hamburger(i_item, i_name);
+          //this.regist_hamburger( i_item, i_name );
+          break;
+        case "audioswitch":
+          this.regist_audioswitch(i_item, i_name);
           break;
       }
     }
@@ -1058,6 +1088,63 @@ var partsHeader = /*#__PURE__*/function () {
     }
   }]);
   return partsHeader;
+}();
+
+
+/***/ }),
+
+/***/ "./dist/assets_src/js/func/loading.js":
+/*!********************************************!*\
+  !*** ./dist/assets_src/js/func/loading.js ***!
+  \********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ loadingScreen; }
+/* harmony export */ });
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+//========================================================
+//
+//  Nowloading... 読み込み画面
+//
+//========================================================
+var loadingScreen = /*#__PURE__*/function () {
+  function loadingScreen() {
+    _classCallCheck(this, loadingScreen);
+    //this.init();
+    this.screen = null;
+  }
+  //--------------------------------
+  //  イベント登録
+  //--------------------------------
+  _createClass(loadingScreen, [{
+    key: "eventRegistration",
+    value: function eventRegistration() {
+      var scr = document.querySelector('[data-js="loadingscreen"]');
+      //  ローディング画面の指定がある要素があれば設定
+      if (scr) {
+        this.screen = scr;
+        //  表示
+        //scr.style.visibility = 'visible';
+
+        //  一定時間後に非表示
+        window.addEventListener('load', function () {
+          setTimeout(function () {
+            scr.classList.add("hide");
+            //console.log( "endLoading :" );
+          }, 200);
+        });
+      }
+    }
+  }]);
+  return loadingScreen;
 }();
 
 
@@ -1553,6 +1640,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _func_accordion__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./func/accordion */ "./dist/assets_src/js/func/accordion.js");
 /* harmony import */ var _func_swiper_setting__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./func/swiper-setting */ "./dist/assets_src/js/func/swiper-setting.js");
 /* harmony import */ var _anim_gsap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./anim/gsap */ "./dist/assets_src/js/anim/gsap.js");
+/* harmony import */ var _func_loading__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./func/loading */ "./dist/assets_src/js/func/loading.js");
 
 
 //  スムーススクロール( IDジャンプした際にURLにIDが付与されるのを回避 )
@@ -1566,6 +1654,7 @@ __webpack_require__.r(__webpack_exports__);
  //  アコーディオン
  //  swiper設定
  //  GSAPアニメーション
+ //  ローディング表示
 
 var varcommon = new _func_common__WEBPACK_IMPORTED_MODULE_1__["default"]();
 var header = new _func_header__WEBPACK_IMPORTED_MODULE_2__["default"]();
@@ -1575,6 +1664,7 @@ var tabgroup = new _func_tabgroup__WEBPACK_IMPORTED_MODULE_5__["default"]();
 var accordions = new _func_accordion__WEBPACK_IMPORTED_MODULE_6__["default"]();
 var swipergroup = new _func_swiper_setting__WEBPACK_IMPORTED_MODULE_7__["default"]();
 var anim_gsap = new _anim_gsap__WEBPACK_IMPORTED_MODULE_8__["default"]();
+var loadingscreen = new _func_loading__WEBPACK_IMPORTED_MODULE_9__["default"]();
 
 //----------------------------------------------------
 //  初期化関数
@@ -1597,6 +1687,9 @@ var init = function init() {
 
   //  GSAPアニメ登録
   anim_gsap.eventRegistration(varcommon);
+
+  //  ローディング
+  loadingscreen.eventRegistration();
 };
 
 //----------------------------------------------------

@@ -4,19 +4,46 @@
 //------------------------------------------------
 .p-footer {
     width: 100%;
-    background-color : g.$color-black;
+    background-color : g.$color-trueblack;
 
+    .p-footer__body {
+        width: 100%;
+        margin-top: 40px;
+        margin-bottom:40px;
+    }
     .p-footer__inner {
         width: 100%;
+        //max-width: min( calc( 100% - 40px ),  (g.$layout-width-comp - 60px ) );
+        max-width: calc( 100% - 60px );
         margin : auto;
-        margin-top: 54px;
-        margin-bottom:70px;
-        max-width: min( calc( 100% - 40px ),  g.$layout-width-inner );
         display: flex;
-        flex-direction :column;
-        justify-content: flex-start;
+        flex-direction :row;
+        align-items: center;
+        justify-content: space-between;
         color : g.$color-white;
     }
+    .p-footer__snswrapper{
+        display:flex;
+        flex-direction:row;
+        align-items: center;
+        gap: 8px;
+        .fb{
+            transform:translateY(4px);
+        }
+        #facebook{
+            margin:auto;
+            display:flex;
+            align-items: center;
+        }
+        .fa-line{
+            margin : auto;
+            font-size: 24px;
+            color : rgb(111, 207, 111);//g.$color-green;
+            background-color : g.$color-white;
+            border-radius: 10px;
+        }
+    }
+
     .p-footer__copylight{
         margin:0;
         margin-top : 17px;
@@ -39,10 +66,21 @@
 
 @include g.mq('-md') {
 .p-footer {
-    .inner {
+    .p-footer__body {
+        width: 100%;
         margin-top: 50px;
-        margin-bottom:50px;
+        margin-bottom:20px;
+    }
+    .p-footer__inner {
         max-width: calc( 100% - 40px );
+        display:flex;
+        flex-direction : column;
+        .p-footer__snswrapper{
+            //width: 100%;
+            gap: 8px;
+            justify-content: space-between;
+        }
+
     }
     .p-footer__menulists{
         display:flex;
@@ -61,13 +99,11 @@
         }
     }
     .p-footer__copylight{
-        margin-top : 0px;
-        picture{
-            width: 87px;
-            height: 18.4px;
-            img{
-                object-fit : contain;
-            }
+        margin-top : 30px;
+        margin-bottom : 44px;
+        small{
+            @include g.fz(11,14,bold);
+            @include g.ls(5);
         }
     }
 }

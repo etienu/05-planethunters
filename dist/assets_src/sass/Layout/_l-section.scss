@@ -1,13 +1,118 @@
+@use '../global' as g;
 //-------------------------------------------
-//  汎用セクション
+//
+//  汎用レイアウト枠組み
+//  l- layout自体が枠組みの意味なので余計な単語を省く
+//
 //-------------------------------------------
+@mixin l-sec--flags() {
+    &.--left{  justify-content: flex-start;  }
+    &.--right{ justify-content: flex-end; }
+    &.--center{justify-content: center;   }
+}
+@mixin l-sec--pcflags() {
+    &.--pc-left{  justify-content: flex-start;  }
+    &.--pc-right{ justify-content: flex-end; }
+    &.--pc-center{justify-content: center; }
+}
+@mixin l-sec--spflags() {
+    &.--sp-left{  justify-content: flex-start;  }
+    &.--sp-right{ justify-content: flex-end; }
+    &.--sp-center{justify-content: center;  }
+}
+
+
 .l-section {
     position: relative;
     width: 100%;
     display:flex;
-    justify-content: center;
+    flex-direction:column;
+    align-items : center;
     //  セクションによって隠したくない時もある為
     &.ofh{
         overflow: hidden;
     }
+}
+
+//  セクションヘッダー
+.l-heading {
+    position: relative;
+    width: 100%;
+    display:flex;
+    @include l-sec--flags();
+    //  セクションによって隠したくない時もある為
+    &.ofh{
+        overflow: hidden;
+    }
+}
+
+//  セクションボディ
+//  ボディは見だしとフッター(CVボタン等)の間、コンテンツ部分
+//  幅は最大とする
+.l-body {
+    position:relative;
+    margin:auto;
+    //max-width: g.$layout-width-inner;   /*  カンプ幅 */
+    max-width: 100%;
+    width: 100%;
+    /*  セクションによって隠したくない時もある為 */
+    &.--ofh{
+        overflow: hidden;
+    }
+}
+
+//  汎用インナー
+//  インナーはボディ中、カンプで統一された幅を指定する場合に使用
+.l-inner {
+    position:relative;
+    margin:auto;
+    max-width: g.$layout-width-inner;   /*  カンプ幅 */
+    width: 100%;
+    //max-width: 100%;
+    /*  セクションによって隠したくない時もある為 */
+    &.--ofh{
+        overflow: hidden;
+    }
+}
+
+
+//  フッター
+//  汎用ボタン枠
+.l-btn{
+    position: relative;
+    width: 100%;
+    display:flex;
+    @include l-sec--flags();
+}
+
+//----------------------------------------
+//  レスポンシブ
+//----------------------------------------
+//----------------------------------------
+//  PC版のみのCSS 768px以上
+//----------------------------------------
+@include g.mq('md-') {
+    .l-heading,
+    .l-inner,
+    .l-btn{
+        @include l-sec--pcflags();
+    }
+}
+
+@include g.mq('-xl') {
+}
+
+@include g.mq('-lg') {
+}
+
+//----------------------------------------
+//  SP 767以下
+//----------------------------------------
+@include g.mq('-md') {      
+    .l-heading,
+    .l-inner,
+    .l-btn{
+        @include l-sec--spflags();
+    }
+    
 }

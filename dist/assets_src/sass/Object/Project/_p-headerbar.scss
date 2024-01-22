@@ -6,14 +6,18 @@
     width: 100%;
     height: g.$header-height;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition : background-color 0.3s;
+    color : g.$color-key;
+    //transition : background-color 0.3s;
+    background : linear-gradient(0deg, transparent 0%, black 100%);
     &[data-float="true"]{
-        background-color: rgba(255, 255, 255, 0.50);
+        //background-color: rgba(255, 255, 255, 0.50);
     }
-    .inner {
+    .p-headerbar__inner {
         width: 100%;
+        //max-width: min(calc( 100% - 70px ), g.$layout-width-comp);
         max-width: calc( 100% - 70px );
         margin:auto;
         height: 100%;
@@ -30,23 +34,47 @@
 //        align-items: center;
         @include g.fz(28,28,bold);
         @include g.ls(5);
-        color : g.$color-perple;
+        //color : g.$color-perple;
     }
-    .menulist{
+    .p-headerbar__nav{
+        display:flex;
+        flex-direction:row;
+        align-items: center;
+        gap: 30px;
+    }
+    .p-headerbar__menulist{
         display:flex;
         flex-direction:row;
         gap: 30px;
-        .menuitem{
+        .p-headerbar__menuitem{
             @include g.fz(16,16,bold);
-            @include g.ls(5);
-            color : g.$color-white;
+            @include g.ls(10);
+            //color : g.$color-key;
             &:hover{
-                color : g.$color-perple;
+                opacity: 0.8;
+            //    color : g.$color-key;
             }
             transition : color 0.3s;
         }
     }
-    
+    .p-headerbar__subinner{
+        //max-width: min(calc( 100% - 70px ), g.$layout-width-comp);
+        max-width: calc( 100% - 70px );
+        width: 100%;
+        display:flex;
+        justify-content: flex-end;
+        color:g.$color-white;
+        .p-headerbar__soundswitch{
+            display:flex;
+            align-items: center;
+            gap: 8px;
+            @include g.fz(13,16);
+            @include g.ls(0);
+            &.--playing{
+                color : g.$color-key;
+            }
+        }
+    }
 }
 
 //============================================
@@ -59,23 +87,12 @@
 
 @include g.mq('-md') {
     .p-headerbar {
-        height: g.$header-height-sp;
-        justify-content: space-between;
-        //background-color: rgba(255, 255, 255, 0.5);
-        //background-color: rgba(0, 0, 0, 0.5);
     }
     
     .p-headerbar__inner {
-        width: 100%;
-        max-width: 100%;
-        margin-left: 0px;
-        margin-right: 0px;
     }    
     
     .p-headerbar__logo {
-        margin:auto;
-        //width: 96px;
-        height: 37px;
     }
 }
 
@@ -84,16 +101,34 @@
 //----------------------------------------
 @include g.mq('-md') {
     .p-headerbar {
-        .inner {
+        .p-headerbar__inner {
             width: 100%;
+            height: 60px;
             max-width: calc( 100% - 40px );
         }    
         .logo {
             margin-left: 20px;
-            width: g.vwsp(96.7);
+            width: 120px;
+            picture{
+                display:flex;
+                align-items: center;
+            }
         }
-        .menulist{
-            display:none;
+        .p-headerbar__menulist{
+            gap:20px;
+            .p-headerbar__menuitem{
+                @include g.fz(13,13,bold);
+                @include g.ls(0);
+            }
         }
+        .p-headerbar__subinner{
+            height: 20px;
+            max-width: calc( 100% - 40px);
+            .p-headerbar__soundswitch{
+                gap: 6px;
+                @include g.fz(13,14);
+            }
+        }
+    
     }
 }

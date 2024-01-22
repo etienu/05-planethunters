@@ -41,34 +41,6 @@
     font-display: swap;
 }
 
-/*  Zen_Kaku_Gothic_Antique */
-@font-face {
-    font-family: 'Zen Kaku Gothic Antique';
-    font-style: normal;
-    font-weight: 400;
-    font-display: block;
-    src: url("../webfonts/googlefonts/Zen_Kaku_Gothic_Antique/ZenKakuGothicAntique-Medium.woff2") format("woff2"),
-    url("../webfonts/googlefonts/Zen_Kaku_Gothic_Antique/ZenKakuGothicAntique-Medium.ttf") format("truetype");
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Zen Kaku Gothic Antique';
-    font-style: normal;
-    font-weight: 300;
-    font-display: block;
-    src: url("../webfonts/googlefonts/Zen_Kaku_Gothic_Antique/ZenKakuGothicAntique-Regular.woff2") format("woff2"),
-    url("../webfonts/googlefonts/Zen_Kaku_Gothic_Antique/ZenKakuGothicAntique-Regular.ttf") format("truetype");
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Zen Kaku Gothic Antique';
-    font-style: normal;
-    font-weight: 200;
-    font-display: block;
-    src: url("../webfonts/googlefonts/Zen_Kaku_Gothic_Antique/ZenKakuGothicAntique-Light.woff2") format("woff2"),
-    url("../webfonts/googlefonts/Zen_Kaku_Gothic_Antique/ZenKakuGothicAntique-Light.ttf") format("truetype");
-    font-display: swap;
-}
 
 /*
 //  Lora
@@ -97,42 +69,24 @@
 }
 */
 //  Josefin Sans
-@font-face {
-    font-family: 'Josefin Sans';
-    font-style:italic;
-    font-weight: 400;
-    font-display: block;
-    src: url("../webfonts/googlefonts/Josefin_Sans/JosefinSans-Italic.woff2") format("woff2"),
-    url("../webfonts/googlefonts/Josefin_Sans/JosefinSans-Italic.ttf") format("truetype");
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Josefin Sans';
-    font-style:normal;
-    font-weight: 400;
-    font-display: block;
-    src: url("../webfonts/googlefonts/Josefin_Sans/JosefinSans-Regular.woff2") format("woff2"),
-    url("../webfonts/googlefonts/Josefin_Sans/JosefinSans-Regular.ttf") format("truetype");
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Josefin Sans';
-    font-style:italic;
-    font-weight: bold;
-    font-display: block;
-    src: url("../webfonts/googlefonts/Josefin_Sans/JosefinSans-BoldItalic.woff2") format("woff2"),
-    url("../webfonts/googlefonts/Josefin_Sans/JosefinSans-BoldItalic.ttf") format("truetype");
-    font-display: swap;
-}
 
 //  Exo
 @font-face {
     font-family: 'Exo';
     font-style:normal;
-    font-weight: 400;
+    font-weight: 600;
     font-display: block;
-    src: url("../webfonts/googlefonts/Exo/Exo-VariableFont_wght_subset.woff2") format("woff2"),
-    url("../webfonts/googlefonts/Exo/Exo-VariableFont_wght_subset.ttf") format("truetype");
+    src: url("../webfonts/googlefonts/Exo/Exo-SemiBold.woff2") format("woff2"),
+    url("../webfonts/googlefonts/Exo/Exo-SemiBold.ttf") format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Exo';
+    font-style:normal;
+    font-weight: 700;
+    font-display: block;
+    src: url("../webfonts/googlefonts/Exo/Exo-Bold.woff2") format("woff2"),
+    url("../webfonts/googlefonts/Exo/Exo-Bold.ttf") format("truetype");
     font-display: swap;
 }
 

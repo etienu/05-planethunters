@@ -5,8 +5,9 @@
 /*  基本となるコンテンツ幅 */
 $layout-width-comp:1440px; //  デザインカンプ幅
 $layout-width-inner:1110px;//   インナー幅 : メイン
-$header-height:80px;
-$header-height-sp:60px;
+$layout-width-comp-sp:390px; //  デザインカンプ幅-sp
+$header-height:110px;
+$header-height-sp:80px;
 
 /*  メニューバー二段目がある場合 */
 $header-second-height-sp:0px;  /*  未使用の場合0に */
@@ -30,10 +31,11 @@ $font-KosugiMaru: 'Kosugi Maru';
 $font-MPlus1p: 'M PLUS 1p';
 $font-YuMincho: 'Yu Mincho';
 $font-Josefin: 'Josefin Sans';
+$font-Exo: 'Exo';
 
 /*  基本 */
 /*  英数字用、日本語用の順 */
-$baseFont: $font-Josefin, 'Noto Sans JP', "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+$baseFont: $font-Exo, 'Noto Sans JP', "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
 //$baseFont: 'Zen Kaku Gothic Antique', "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
 
 

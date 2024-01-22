@@ -1,0 +1,199 @@
+@use '../../global' as g;
+//------------------------------------------------
+//    top- セクション02 - STORY
+//------------------------------------------------
+.p-story {
+    position:relative;
+    //padding-bottom : 30px;
+    .p-story__bg{
+        position:absolute;
+        width: 100%;
+        height: 100%;
+        background-color : g.$color-trueblack;
+        img{
+            object-fit: contain;//cover;
+        }
+    }
+    .p-story__heading{
+    }
+    .p-story__body {
+        margin-top : 140px;
+        margin-bottom : 123px;
+    }
+    .p-story__inner {
+        max-width: min( calc(100% - 40px), calc(g.$layout-width-inner) );
+        width: 100%;
+        margin : auto;
+        display:flex;
+        flex-direction:column;
+        align-items: center;
+        color : g.$color-white;
+
+    }
+    .p-story__content {
+    }
+
+    .p-story__list{
+        display: flex;
+        flex-direction : column;
+        align-items:center;
+        width: 100%;
+        gap: 83px;
+    }
+    .p-story__box{
+        display:flex;
+        width: 100%;
+        flex-direction:row;
+        align-items: flex-end;
+        gap: 80px;
+        &.--rev{
+            .p-story__texts{
+                order : 1;
+            }
+            .p-story__image{
+                order : 0;
+                box-shadow: -7px 7px 0 g.$color-key;
+                transform:skew( 3deg );
+            }
+        }
+    }
+    .p-story__texts{
+        display:flex;
+        flex-direction:column;
+        text-align:left;
+        padding-top:18px;
+        .p-story__sectiontitle{
+            position : relative;
+            @include g.fz(80,80,bold);
+            @include g.ls(5);
+            color : g.$color-key;
+            &:after{
+                position : absolute;
+                content : "";
+                width: 80px;
+                height: 8px;
+                background-color: g.$color-key;
+                left : 0;
+                bottom: -16px;
+            }
+        }
+        .p-story__title{
+            margin-top : 60px;
+            @include g.fz(32,48,400);
+            @include g.ls(5);
+        }
+        .p-story__lead{
+            margin-top : 10px;
+            @include g.fz(16,28.8);
+            @include g.ls(5);
+        }
+    }
+    .p-story__image{
+        height: g.vwmax(507);
+        img{
+            width: g.vwmax(437);
+            aspect-ratio: 437/507;
+        }
+        box-shadow: 7px 7px 0 g.$color-key;
+        transform:skew( -3deg );
+    }
+}
+
+
+//----------------------------------------
+//  レスポンシブ
+//----------------------------------------
+//----------------------------------------
+//  PC版のみのCSS 768px以上
+//----------------------------------------
+@include g.mq('md-') {
+}
+
+@include g.mq('-xl') {
+}
+
+@include g.mq('-lg') {
+//}
+
+//----------------------------------------
+//  SP 767以下
+//----------------------------------------
+//@include g.mq('-md') {      
+    .p-story {
+        .p-story__bg{
+            img{
+            }
+        }
+        .p-story__heading{
+        }
+        .p-story__body {
+            margin-top : 50px;
+            margin-bottom : 43px;
+        }
+        .p-story__inner {
+            max-width: calc(100% - 40px);    
+        }  
+        .p-story__list{
+            gap: 0;//53px;
+        }
+        .p-story__box{
+            display:flex;
+            width: 100%;
+            flex-direction:column;
+            gap: 30px;
+            &.--rev{
+                .p-story__texts{
+                    order : 0;
+                }
+                .p-story__image{
+                    order : 1;
+                    transform:skew( 5deg );
+                }
+            }
+        }
+        .p-story__texts{
+            order : 0;
+            display:flex;
+            flex-direction:column;
+            text-align:left;
+            padding-top:18px;
+            width: calc( 100% - 8px );
+            .p-story__sectiontitle{
+                position : relative;
+                @include g.fz(80,80,bold);
+                @include g.ls(5);
+                color : g.$color-key;
+                &:after{
+                    position : absolute;
+                    content : "";
+                    width: 80px;
+                    height: 8px;
+                    background-color: g.$color-key;
+                    left : 0;
+                    bottom: -16px;
+                }
+            }
+            .p-story__title{
+                margin-top : 45px;
+                @include g.fz(24,32,400);
+                @include g.ls(5);
+            }
+            .p-story__lead{
+                margin-top : 20px;
+                @include g.fz(15,27);
+                @include g.ls(5);
+            }
+        }
+        .p-story__image{
+            order : 1;
+            width: min( calc(100% - 60px), 600px );
+            height: auto;
+            margin:auto;
+            img{
+                width: 100%;
+                aspect-ratio : 357/414;
+            }
+            transform:skew( -5deg );
+        }
+    }
+    }

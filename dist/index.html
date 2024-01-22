@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
+<!--
+    CSSはみ出し確認
+    $$("*").forEach(v => v.style.outline = '1px solid red')    
+-->
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +21,7 @@
 
     <!-- OGP -->
     <meta property='og:type' content='website'>
-    <meta property='og:title' content='ENGBODY'>
+    <meta property='og:title' content='PlanetHunters'>
     <meta property='og:url' content=''>
     <meta property='og:description'
     content='奪われた故郷の星を取り戻せ。壮大なSFファンタジー'>
@@ -35,6 +39,8 @@
 	<script src="assets/lib/swiper/swiper-bundle.min.js" defer></script>    
 	<script src="assets/js/bundle.js?v=1" defer></script>
     <!-- css  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <link rel="stylesheet" href="assets/lib/swiper/swiper-bundle.min.css">
 	<link rel="stylesheet" href="assets/css/style.css?v=1">
 
@@ -43,6 +49,17 @@
 <!-- Head : END -->
 
 <body>
+    <!-- loading -->
+    <div class="l-loader" data-js="loadingscreen">
+        <div class="trinity-rings-spinner">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+          </div>        
+    
+        <div class="load-text load-blink load-absolute">Loading...</div>
+    </div>
+    
     <!-- Header Start -->
     <header class="l-header" data-js="header">
         <div class="p-headerbar" id="header">
@@ -56,20 +73,22 @@
                     </h1>
                 </a>
                 
-                <nav>
+                <nav class="p-headerbar__nav">
                     <ul class="p-headerbar__menulist">
-                        <li class="p-headerbar__menuitem">STORY</li>
-                        <li class="p-headerbar__menuitem">TRAILER</li>
+                        <li class="p-headerbar__menuitem"><a href="#">STORY</a></li>
+                        <li class="p-headerbar__menuitem"><a href="#">TRAILER</a></li>
                     </ul>
                     <button class="c-button__cv --header">
                         PLAY NOW
                     </button>
                 </nav>
             </div>
+            <!--2段目-->
             <div class="p-headerbar__subinner">
-                <button class="p-headerbar__soundswitch">
-                    SOUND OFF
+                <button class="p-headerbar__soundswitch" data-js="button" data-name="audioswitch" data-target="#mvmusic">
+                    SOUND OFF<span class="material-icons">volume_off</span>
                 </button>
+                <audio src="assets/images/top/pc/mv.mp3" id="mvmusic" loop muted></audio>
             </div>
         </div>
     </header>
@@ -108,128 +127,197 @@
         <!-- section : MV -->
         <section class="l-section p-mv" id="mv">
             <div class="p-mv__bg">
-                <picture>
-                    <source srcset="assets/images/top/pc/mv.png" media="(max-width: 768px)" width="1200" height="630">
-                    <img src="assets/images/top/pc/mv.png" alt="" width="1200" height="630">
-                </picture>
+                <div id="video-area">
+                    <video id="video" poster="" webkit-playsinline playsinline muted autoplay loop>
+                    <source src="assets/images/top/pc/video.mp4" type="video/mp4">
+                    <p>動画を再生できる環境ではありません。</p>
+                    </video>
+                </div>
+                
             </div>
-            <div class="l-inner p-mv__inner">
-                <div class="p-mv_content">
+            <div class="l-body p-mv__body">
+                <div class="p-mv__inner">
                     <div class="p-mv__texts">
-                        <p>VR GAME</p>
-                        <h2 class="enff --i" lang="en">
+                        <p class="genre">VR GAME</p>
+                        <h2 class="enff" lang="en">
                             <span>Planet<br>Hunters</span>
                         </h2>
-                        <p>惑星を奪還せよ</p>
+                        <p class="sub">惑星を奪還せよ</p>
                     </div>
-                    <div class="p-mv__buttonwrapper">
-                        <a class="c-button__cv" href="#"><span>PLAY NOW</span></a>
-                    </div>
-                    <div class="p-mv__newswrapper">
-                        <span>2030.02.20</span>
+                    <div class="l-btn --left p-mv__buttonwrapper">
+                        <a class="c-button__cv --mv" href="#"><span>PLAY NOW</span></a>
                     </div>
                 </div>
+                <div class="p-mv__newswrapper">
+                    <div class="p-mv__newsbox">
+                        <p class="loop"><span>2030.02.20</span>バージョン5.6リリース：アバター・アイコンリリースしました。</p>
+                        <p class="loop2"><span>2030.02.20</span>バージョン5.6リリース：アバター・アイコンリリースしました。</p>
+                    </div>
+                </div>
+                <div class="c-animobj__scrolldown">
+                    <span>Scroll</span>
+                </div>
+            </div>
+            <div class="p-mv__pathobject">
+                <div class="c-pathobject__sec --black"></div>
             </div>
         </section>
         <!-- section:END -->
 
         <!-- section : STORY -->
         <section class="l-section p-story" id="story">
-            <div class="p-story__header">
-                <h2 class="p-story__title">
-                    <span class="c-title enff" lang="en">STORY</span>
-                </h2>
+            <div class="p-story__bg">
+                <picture>
+                    <source srcset="assets/images/top/pc/webp/story_bg.webp" type="image/webp">
+                    <img src="assets/images/top/pc/story_bg.jpg" alt="" width="1408" height="1408">
+                </picture>
             </div>
-            <div class="l-inner p-story__inner">
-                <ul class="p-story__boxlist">
-                    <li class="p-story__box">
-                        <div class="p-story__texts">
-                            <h2 class="p-story__sectiontitle">STORY</h2>
-                            <h3 class="p-story__title">
-                                奪われた故郷の星を取り戻せ<br>壮大なSFファンタジー
-                            </h3>
-                            <p class="p-story__lead">
-                                銀河歴222年、惑星ネコチャンは、ボスネコ将軍の率いる軍の反乱により完全に制圧された。将軍の側近マンチカンは軍政府に従わない人間を辺境の星ニャゴーへ強制的に追放。食料や資源の乏しいニャゴーでは多くの難民が発生し飢餓に苦しんでいた。ニャゴーのスラム街で育った孤児の姉弟がいた。姉のミケと弟のタマは母親をボスネコ将軍に殺された事実を知る。母の復讐のため、そして故郷の惑星ネコチャンを奪還すべく、ミケとタマはいま行動に出る！
-                            </p>
-                        </div>
-                        <div class="p-story_image">
-                            <picture>
-                                <img src="assets/images/header/pc/story1.png" alt="" width="437" height="500">
-                            </picture>
-                        </div>
-                    </li>
-                    <li class="p-story__box">
-                        <div class="p-story__texts">
-                            <h3 class="p-story__title">
-                                隠された陰謀を暴け<br>衝撃的な事実に驚愕
-                            </h3>
-                            <p class="p-story__lead">
-                                ミケとタマはネコジャラシ作戦により軍政府の最新鋭の小型船チュールを奪うことに成功。チュールのハイテンションワープ星間航行により惑星ネコチャンへあとわずか３時間で到着という時、小惑星帯アビシニアンで謎の救難信号を受信する。意外にも信号の発信源はボスネコ将軍だった。彼は今にも絶えそうなかすれた声で「私はおまえたちミケとタマの父親なのだ」と語る。その瞬間、ミケとタマの育ての親同然で仲間のはずのホワイトオッドアイがタマの背中を刀で切り裂いたのだった......
-                            </p>
-                        </div>
-                        <div class="p-story_image">
-                            <picture>
-                                <img src="assets/images/header/pc/story1.png" alt="" width="437" height="500">
-                            </picture>
-                        </div>
-                    </li>
-                </ul>
-                <p class="p-heyguys__texts">
-                </p>
+            <div class="l-body p-story__body">
+                <div class="p-story__inner">
+                    <ul class="p-story__list">
+                        <li class="p-story__box">
+                            <div class="p-story__texts">
+                                <h2 class="c-title__section">STORY</h2>
+                                <h3 class="p-story__title">
+                                    奪われた故郷の星を取り戻せ<br>壮大なSFファンタジー
+                                </h3>
+                                <p class="p-story__lead">
+                                    銀河歴222年、惑星ネコチャンは、ボスネコ将軍の率いる軍の反乱により完全に制圧された。将軍の側近マンチカンは軍政府に従わない人間を辺境の星ニャゴーへ強制的に追放。食料や資源の乏しいニャゴーでは多くの難民が発生し飢餓に苦しんでいた。ニャゴーのスラム街で育った孤児の姉弟がいた。姉のミケと弟のタマは母親をボスネコ将軍に殺された事実を知る。母の復讐のため、そして故郷の惑星ネコチャンを奪還すべく、ミケとタマはいま行動に出る！
+                                </p>
+                            </div>
+                            <div class="p-story__image">
+                                <picture>
+                                    <source srcset="assets/images/top/pc/webp/story1.webp" type="image/webp">
+                                    <img src="assets/images/top/pc/story1.jpg" alt="" width="437" height="500">
+                                </picture>
+                            </div>
+                        </li>
+                        <li class="p-story__box --rev">
+                            <div class="p-story__texts">
+                                <h3 class="p-story__title">
+                                    隠された陰謀を暴け<br>衝撃的な事実に驚愕
+                                </h3>
+                                <p class="p-story__lead">
+                                    ミケとタマはネコジャラシ作戦により軍政府の最新鋭の小型船チュールを奪うことに成功。チュールのハイテンションワープ星間航行により惑星ネコチャンへあとわずか３時間で到着という時、小惑星帯アビシニアンで謎の救難信号を受信する。意外にも信号の発信源はボスネコ将軍だった。彼は今にも絶えそうなかすれた声で「私はおまえたちミケとタマの父親なのだ」と語る。その瞬間、ミケとタマの育ての親同然で仲間のはずのホワイトオッドアイがタマの背中を刀で切り裂いたのだった......
+                                </p>
+                            </div>
+                            <div class="p-story__image">
+                                <picture>
+                                    <source srcset="assets/images/top/pc/webp/story2.webp" type="image/webp">
+                                    <img src="assets/images/top/pc/story2.jpg" alt="" width="437" height="500">
+                                </picture>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </section>
         <!-- section:END -->
 
         <!-- section : CTA -->
         <section class="l-section p-cta" id="cta">
-            <div class="l-section__header">
+            <div class="p-cta__bg">
+                <picture>
+                    <source srcset="assets/images/top/pc/webp/cta_bg.webp" type="image/webp">
+                    <img src="assets/images/top/pc/cta_bg.jpg" alt="" width="1408" height="1408">
+                </picture>
+            </div>
+            <div class="c-pathobject__wrapper --rev">
+                <div class="c-pathobject__sec --black --rev"></div>
+            </div>
+            <div class="l-heading --center p-cta__heading">
                 <h2>ARE YOU READY TO FIGHT?</h2>
             </div>
-            <div class="l-inner p-cta__inner">
-            </div>            
-            <div class="l-section__footer">
-                <button class="c-button__cv">PLAY NOW</button>
+            <div class="l-btn --center p-cta__btn">
+                <button class="c-button__cv --cta">PLAY NOW</button>
+            </div>
+            <div class="c-pathobject__wrapper">
+                <div class="c-pathobject__sec --key"></div>
             </div>
         </section>
         <!-- section:END -->
 
         <!-- section : トレーラー -->
         <section class="l-section p-trailer" id="trailer">
-            <div class="l-section__header">
-                <h2>ARE YOU READY TO FIGHT?</h2>
+            <div class="l-body p-trailer__body">
+                <div class="l-inner p-trailer__inner">
+                    <div class="l-heading --left p-trailer__heading">
+                        <h2 class="c-title__section --black">TRAILER</h2>
+                    </div>
+                    <div class="p-trailer__video">
+                        <iframe
+                        src="https://www.youtube.com/embed/gUQcMbcYOQ0?si=F4_ALyjgIEuMZOgk"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                         allowfullscreen></iframe>
+                    </div>
+                </div>
             </div>
-            <div class="l-inner p-trailer__inner">
-            </div>            
         </section>
         <!-- section:END -->
 
         <!-- section : CTA -->
         <section class="l-section p-cta" id="cta">
-            <div class="l-section__header">
+            <div class="p-cta__bg">
+                <picture>
+                    <source srcset="assets/images/top/pc/webp/cta_bg.webp" type="image/webp">
+                    <img src="assets/images/top/pc/cta_bg.jpg" alt="" width="1408" height="1408">
+                </picture>
+            </div>
+            <div class="c-pathobject__wrapper --rev">
+                <div class="c-pathobject__sec --key --rev"></div>
+            </div>
+            <div class="l-heading --center p-cta__heading">
                 <h2>ARE YOU READY TO FIGHT?</h2>
             </div>
-            <div class="l-inner p-cta__inner">
-            </div>            
-            <div class="l-section__footer">
-                <button class="c-button__cv">PLAY NOW</button>
+            <div class="l-btn --center p-cta__btn">
+                <button class="c-button__cv --cta">PLAY NOW</button>
+            </div>
+            <div class="c-pathobject__wrapper">
+                <div class="c-pathobject__sec --black"></div>
             </div>
         </section>
         <!-- section:END -->
 
+
     </main>
 
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v18.0" nonce="o5PYbrrW"></script>    
 
     <!-- footer -->
 	<footer id="footer" class="l-section p-footer">
-		<div class="l-inner p-footer__inner">
-            <div class="p-footer__snswrapper">
+		<div class="l-body p-footer__body">
+            <div class="l-inner p-footer__inner">
+                <div class="p-footer__snswrapper">
+                    <!-- c-snsとか作った方がいい -->
+                    <div class="fb">
+                        <div class="fb-like" 
+                        data-href="https://www.your-domain.com/your-page.html" 
+                        data-width=""
+                        data-layout="button_count" 
+                        data-action="like" 
+                        data-size="small"  
+                        data-share="true">
+                        </div>
+                    </div>
+                    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    
+                    <!--LINE <i class="fa-brands fa-line"></i>-->
+                    <div class="line-it-button" data-lang="ja" data-type="share-b" data-env="REAL" data-url="https://developers.line.biz/ja/docs/line-social-plugins/install-guide/using-line-share-buttons/" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
+                    <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+                    
+                </div>
+                <div class="p-footer__copylight">
+                    <small>©Necopon games</small>
+                </div>
+                <div class="l-btn u-display__sp">
+                    <button class="c-button__cv --footer">PLAY NOW</button>
+                </div>
+    
             </div>
-            <div class="p-footer__copylight">
-                <small>©Necopon games</small>
-            </div>
-		</div>
-        <div class="l-section__footer u-display__sp">
-            <button class="c-button__cv --footer">PLAY NOW</button>
+    
         </div>
 </footer><!-- /footer -->
 

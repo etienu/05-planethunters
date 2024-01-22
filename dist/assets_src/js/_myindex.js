@@ -12,6 +12,7 @@ import tabGroup from './func/tabgroup';         //  タブグループ
 import Accordions from './func/accordion';      //  アコーディオン
 import swiperGroup from './func/swiper-setting';//  swiper設定
 import anim_GSAP from './anim/gsap';            //  GSAPアニメーション
+import loadingScreen from './func/loading';         //  ローディング表示
 
 const varcommon = new varCommon();
 const header = new Header();
@@ -21,6 +22,8 @@ const tabgroup = new tabGroup();
 const accordions = new Accordions();
 const swipergroup = new swiperGroup();
 const anim_gsap = new anim_GSAP();
+const loadingscreen = new loadingScreen();
+
 
 //----------------------------------------------------
 //  初期化関数
@@ -43,7 +46,11 @@ const init = function() {
     
     //  GSAPアニメ登録
     anim_gsap.eventRegistration( varcommon );    
+
+    //  ローディング
+    loadingscreen.eventRegistration();
 };
+
 
 //----------------------------------------------------
 //  イベント : ロード

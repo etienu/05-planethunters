@@ -1,0 +1,74 @@
+@use '../../global' as g;
+//------------------------------------------------
+//  パスオブジェクト
+//------------------------------------------------
+.c-pathobject__wrapper {
+    position : absolute;
+    width: 100%;
+    height:100%;
+    display:flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    &.--rev{
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    pointer-events: none;
+
+}
+
+.c-pathobject__sec {
+    position : relative;
+    width: 430px;
+    height: 40px;
+    clip-path: polygon(20% 0%, 100% 0, 100% 100%, 0% 100%);
+    transform:translateY(1px);
+    &.--rev{
+        transform:translateY(-1px) rotate(180deg);
+    }
+    &.--black{
+        background-color : g.$color-trueblack;
+    };
+    &.--main{
+        background-color : g.$color-main;
+    }
+    &.--key{
+        background-color : g.$color-key;
+    }
+}
+
+
+//----------------------------------------
+//  レスポンシブ
+//----------------------------------------
+//----------------------------------------
+//  PC版のみのCSS 768px以上
+//----------------------------------------
+@include g.mq('md-') {
+}
+
+//----------------------------------------
+//  SP 767以下
+//----------------------------------------
+@include g.mq('-md') {
+.c-pathobject__sec {
+    position : relative;
+    width: 50vw;
+    height: 30px;
+    clip-path: polygon(20% 0%, 100% 0, 100% 100%, 0% 100%);
+    transform:translateY(1px);
+    &.--rev{
+        transform:translateY(-1px) rotate(180deg);
+    }
+    &.--black{
+        background-color : g.$color-trueblack;
+    };
+    &.--main{
+        background-color : g.$color-main;
+    }
+    &.--key{
+        background-color : g.$color-key;
+    }
+}
+    
+}
