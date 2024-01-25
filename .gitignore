@@ -1,6 +1,0 @@
-#git無視リスト
-/node_modules/
-/.babelrc
-/*.bat
-/.styleintrrc*
-redeme_dev.md
