@@ -10,14 +10,9 @@
     align-items: center;
     justify-content: center;
     color : g.$color-key;
-    //transition : background-color 0.3s;
     background : linear-gradient(0deg, transparent 0%, black 100%);
-    &[data-float="true"]{
-        //background-color: rgba(255, 255, 255, 0.50);
-    }
     .p-headerbar__inner {
         width: 100%;
-        //max-width: min(calc( 100% - 70px ), g.$layout-width-comp);
         max-width: calc( 100% - 70px );
         margin:auto;
         height: 100%;
@@ -29,12 +24,8 @@
     .logo {
         width: auto;
         height: auto;
-//        display: flex;
-//        justify-content: center;
-//        align-items: center;
         @include g.fz(28,28,bold);
         @include g.ls(5);
-        //color : g.$color-perple;
     }
     .p-headerbar__nav{
         display:flex;
@@ -49,16 +40,13 @@
         .p-headerbar__menuitem{
             @include g.fz(16,16,bold);
             @include g.ls(10);
-            //color : g.$color-key;
             &:hover{
                 opacity: 0.8;
-            //    color : g.$color-key;
             }
             transition : color 0.3s;
         }
     }
     .p-headerbar__subinner{
-        //max-width: min(calc( 100% - 70px ), g.$layout-width-comp);
         max-width: calc( 100% - 70px );
         width: 100%;
         display:flex;

@@ -13,9 +13,6 @@ export default class anim_gsap {
     eventRegistration( i_common ) {
         //  共有変数クラスの確保
         this.common = i_common;
-        //this.registanim__intro__txtmarker();
-        //this.registanim__heading_eff();
-
         this.set_fadein();
         this.set_fadein_up();
         this.set_scrolldisp();
@@ -131,8 +128,6 @@ export default class anim_gsap {
         let elms = document.querySelectorAll('[data-eff="fadein"]');
         if( elms.length <= 0 ) return;
         elms.forEach((elm) => {
-            //let tarid = "#"+elm.dataset.targetid;
-            //let tar = document.querySelector(tarid);
             gsap.fromTo(
                 elm, // アニメーションさせる要素
                 { autoAlpha: 0 },
@@ -163,8 +158,8 @@ export default class anim_gsap {
                     trigger: elm,   // アニメーションが始まるトリガーとなる要素
                     start: "top 90%", // アニメーションの開始位置
                     onEnter: () => {  tl.play()  },
-                  },
-               })
+                },
+            })
             .to(elm,{
                 duration : 0.5,
                 y: 0, // アニメーション後の縦位置(上に100px)
@@ -175,23 +170,6 @@ export default class anim_gsap {
             //  要素にセットしておく
             elm.gsaptl_fadeinUp = tl;
 
-        /*
-            gsap.fromTo(
-                elm, // アニメーションさせる要素
-                { autoAlpha: 0, y:60 },
-                {
-                    duration : 0.5,
-                    y: 0, // アニメーション後の縦位置(上に100px)
-                    autoAlpha: 1, // アニメーション後に出現(透過率0)
-                    scrollTrigger: {
-                      trigger: elm, // アニメーションが始まるトリガーとなる要素
-                      //toggleActions: "play none none reverse", // 上スクロールで戻る
-                      start: "top 90%", // アニメーションの開始位置
-                      //markers: true, // マーカー表示
-                    },
-                }
-            );  
-        */       
         });
     }
 
@@ -226,14 +204,8 @@ export default class anim_gsap {
         let elms = document.querySelectorAll('[data-eff="txtmarker"]');
         if( elms.length <= 0 ) return;
         elms.forEach((elm) => {
-            //let elmafter = getComputedStyle(elm, "::after");
-            //console.log( elmafter);
-            //gsap.set(elmafter, { opacity: 0 });
-            //gsap.set(elm, { opacity: 0 });
             const tl = gsap.timeline();
             tl.
-            //to( elm,
-            //    { autoAlpha:1, y:0, duration:.5, stagger:.1 })
             to( elm,
                 { autoAlpha:1, y:0, duration:0.5,
                     scrollTrigger:{
@@ -241,11 +213,9 @@ export default class anim_gsap {
                         start: 'bottom bottom', //スクロールイベントの開始地点
                         onEnter: () => {  tl.play()  },
                     },
-                 })
+                })
             .to( elm,
                 { '--translateX':'0%', duration:0.5 })
-            //.to( elm,
-            //    { '--translateX':'50%', duration:0.2 })
             .to( elm,
                 {'--translateX':'101%',
                 '--beforeOpacity':'0',

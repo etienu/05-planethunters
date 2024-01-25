@@ -4,7 +4,6 @@
     position : relative;
     display : block;
     color: g.$color-key;
-    //white-space:nowrap;
     @include g.fz(80,80,bold);
     @include g.ls(5);
 

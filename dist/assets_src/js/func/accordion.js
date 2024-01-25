@@ -8,7 +8,6 @@ const closingAnim = (content, element) => gsap.to(content, {
     height: 0,
     opacity: 0,
     duration: 0.4,
-    //ease: "power3.out",Z
     overwrite: true,
     onComplete: () => {
       // アニメーションの完了後にopen属性を取り除く( <details>用 )

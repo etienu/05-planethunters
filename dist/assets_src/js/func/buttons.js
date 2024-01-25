@@ -15,12 +15,10 @@ export default class buttons {
     addScrollStop() {
         document.addEventListener('touchmove', this.disableScroll, { passive: false });
         document.addEventListener('mousewheel', this.disableScroll, { passive: false });
-        //console.log("addScrollStop()");
     }
     removeScrollStop() {
         document.removeEventListener('touchmove', this.disableScroll, { passive: false });
         document.removeEventListener('mousewheel', this.disableScroll, { passive: false });
-        //console.log("removeScrollStop()");
     }
 
     //----------------------------------------
@@ -73,8 +71,6 @@ export default class buttons {
     //----------------------------------------
     regist_hamburger( i_item, i_name ) {
         let ham = i_item;
-        //console.log("[item]"+i_item);
-        //console.log("[name]"+i_name);
         //  要素要素取得
         let elm = this.get_hamburgerElements( i_item );
         //  ボタンにクリックイベントセット
@@ -96,8 +92,6 @@ export default class buttons {
             elms['menu'].dataset.open ="open";
             elms['header'].dataset.open ="open";
             //  開いた スクロール停止
-            //gsap.fromTo('.p-spmenu__background .stripe',{x:"100%"},{x:"0%",stagger:{each:0.1,from:"end"}});
-            //gsap.fromTo('.p-spmenu__inner',{opacity:0},{opacity:1, duration :1.5} );
             this.addScrollStop();
         }
         //  "open"しているなら閉じる
@@ -111,12 +105,9 @@ export default class buttons {
     //----------------------------------------
     hamburgerClose( i_item, i_elements ) {
         let elms = i_elements;
-        //console.log( i_item );
-        //console.log( elms );
         //  data-open="open"で開いている場合
         if( i_item.hasAttribute('data-open') &&
             i_item.dataset.open == "open" ){
-            //console.log("SP→タブなので強制的に閉じます");
             i_item.dataset.open ="close";
             elms['menu'].dataset.open ="close";
             elms['header'].dataset.open ="close";
@@ -132,10 +123,7 @@ export default class buttons {
         //  ボタンにクリックイベントセット
         i_item.addEventListener("click", () => {
             let tarid = i_item.dataset.target;
-            //console.log("[tarid]"+tarid );
             let audio = document.querySelector(tarid);
-            //this.audioToggle( i_item,elm );
-            //console.log("[muted]"+audio.muted+" [paused]"+audio.paused+"[currentTime]"+audio.currentTime);
             if( audio.muted || audio.paused ){
                 audio.muted = false;
                 audio.play();

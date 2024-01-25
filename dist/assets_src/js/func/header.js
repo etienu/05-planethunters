@@ -5,15 +5,10 @@
 //----------------------------------------
 export default class partsHeader {
     constructor(i_header) {
-        //this.lheader = document.querySelector(i_header);
-        //this.body = document.querySelector("body");
-
-        //this.set = 200; //  ウインドウ上部からどれぐら
         this.dispPosition = 0; // 120;    //  ヘッダーの位置による
 
         this.boxTop = new Array;
         this.current = -1;
-        //this.taskFloat();
     }
 
     scrollTask() {
@@ -33,15 +28,10 @@ export default class partsHeader {
             this.lheader.dataset.float ="true";
             this.pheader.dataset.float ="true";
             this.body.dataset.float ="true";
-            //this.header.classList.add("l-header__float");
-            //this.body.classList.add("l-header__float");
         } else {
             this.lheader.dataset.float ="false";
             this.pheader.dataset.float ="false";
             this.body.dataset.float ="false";
-            //this.header.classList.remove("l-header__float");
-            //this.body.classList.remove("l-header__float");
-
         }
     }
 

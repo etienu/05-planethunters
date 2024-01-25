@@ -14,10 +14,6 @@ export default class Common {
         //this.wp_csspath = this.wp_rootpath + "/assets/css/";
         //this.wp_fontpath = this.wp_rootpath + "/assets/webfonts/";
 
-        //  header.phpで受け渡しているワードプレスのテンプレートファイル名
-        //this.wp_template = wp_template;
-        //  recaptchaのキー
-        this.reCAPTCHA_site_key = "6Ld-v70lAAAAAH-rR-4E3UJISYwe2Kd7ihL7FM20";
     }
 
     //------------------------------------------------
@@ -28,13 +24,10 @@ export default class Common {
         let spanText = null;
         //  タグが指定されていない場合
         if( (i_tag == "" || i_tag== null) ){
-            //console.log("タグ指定なし : " );
-            //console.log(i_target );
             divs = i_target;
         //  指定されている場合は取得
             spanText = divs.innerHTML;
         }else{
-            //console.log("タグ指定あり : " + i_tag );
             divs = i_target.querySelector(i_tag);
             console.log(i_target );
             spanText = divs.innerHTML;

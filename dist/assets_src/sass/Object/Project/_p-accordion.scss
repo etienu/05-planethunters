@@ -86,7 +86,7 @@ summary::-webkit-details-marker {
     
             &:after {
                 left: -0%;
-                top : 50%;//9px;
+                top : 50%;
                 transform: rotate(-90deg);
             }
     
@@ -146,13 +146,8 @@ details[data-open="true"] .icon {
                 }
         
                 &:before {
-                    //left: -0px;
-                    //top : 50%;
-                    //transform : translate(0%, 50% );
                 }
                 &:after {
-                    //left: 0%;
-                    //top : 8px;
                 }
             }
         }

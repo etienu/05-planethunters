@@ -15,11 +15,8 @@ export default class swiperGroup {
         const sname = i_swiper + ' .swiper';
         const nextname = i_swiper + ' .swiper-button-next';
         const prevname = i_swiper + ' .swiper-button-prev';
-        //console.log( "sname"+sname );
-        //this.swiperObjs[i_name] = i_swiper; //  HTMLの要素        
         this.swipers[i_name] = new Swiper( sname, {
             loop: false,
-            //initialSlide: 2,
             allowTouchMove: false,  //  ドラッグ無効
             simulateTouch: true, //  タッチイベント
             navigation: {
@@ -38,11 +35,7 @@ export default class swiperGroup {
             updateOnWindowResize: true, //  ウインドウサイズ変更時自動再計算
             autoplay : false
         });
-        //this.swipers[i_name].element = i_swiper;
         this.swipers[i_name].element = document.querySelector(sname);
-        //console.log("とれてる？" + this.swipers[i_name].element);
-
-        //console.log("swiper設定 : trainer");
     }
 
 
@@ -51,8 +44,6 @@ export default class swiperGroup {
     //----------------------------------------
     make_studio( i_swiper, i_name ) {
         const sname = i_swiper + ' .swiper';
-        //console.log( "sname"+sname );
-        // swiperslider
         this.swipers[i_name] = new Swiper( sname, {
             loop: true,
             allowTouchMove: true,  //  ドラッグ友好
@@ -62,7 +53,6 @@ export default class swiperGroup {
                 type: "bullets",
                 clickable: "clickable"
             },
-            // Navigation arrows
             navigation: {
                 nextEl: i_swiper +' .swiper-button-next',
                 prevEl: i_swiper +' .swiper-button-prev',
@@ -84,13 +74,8 @@ export default class swiperGroup {
         this.swiperObjs[i_name] = i_swiper; //  HTML swiperタグ
         switch( i_name )
         {
-        //case "trainer": this.make_trainer( ".p-trainer__swiper", i_name );  break;
         case "studio": this.make_studio( ".p-studio__swiper", i_name );  break;
-        //case "price": this.make_works( i_swiper, i_name );  break;
         }
-        //this.swipers[i_name].element = i_swiper;    //  js swiperデータ
-        
-        //console.log("swiper設定 :" + i_name );
     }
 
 

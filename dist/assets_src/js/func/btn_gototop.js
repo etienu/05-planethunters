@@ -48,8 +48,6 @@ export default class buttonGotoTop {
     //----------------------------------------
     regist_gotoTop( i_item, i_name ) {
         let itm = i_item;
-        //  要素要素取得
-        //let elm = this.get_hamburgerElements( i_item );
         //  クリックイベントセット
         itm.addEventListener("click", () => {
             //  y0に戻る

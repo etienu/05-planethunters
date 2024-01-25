@@ -24,7 +24,6 @@ html {
 body {
     font-family: g.$baseFont;
 	font-size: 1.6rem;
-    //font-weight: 500; /*  游ゴシック対策 */
     font-weight: 400;
 	line-height: 1.5;
     font-feature-settings: 'palt';
@@ -60,7 +59,6 @@ _:lang(x)::-ms-backdrop, body {
 ---------------------------------*/
 //  英文字
 .enff{
-    //font-family: 'Josefin Sans', sans-serif;
     font-family: 'Exo', sans-serif;
     &.--i{
         font-style : italic;

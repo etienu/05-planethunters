@@ -5,7 +5,6 @@
 //========================================================
 export default class loadingScreen {
     constructor() {
-        //this.init();
         this.screen = null;
     }
     //--------------------------------
@@ -16,9 +15,6 @@ export default class loadingScreen {
         //  ローディング画面の指定がある要素があれば設定
         if( scr ){
             this.screen = scr;
-            //  表示
-            //scr.style.visibility = 'visible';
-
             //  一定時間後に非表示
             window.addEventListener('load', () => {
                 setTimeout(function(){

@@ -4,14 +4,13 @@
 //------------------------------------------------
 .p-story {
     position:relative;
-    //padding-bottom : 30px;
     .p-story__bg{
         position:absolute;
         width: 100%;
         height: 100%;
         background-color : g.$color-trueblack;
         img{
-            object-fit: contain;//cover;
+            object-fit: contain;
         }
     }
     .p-story__heading{
@@ -134,7 +133,7 @@
             max-width: calc(100% - 40px);    
         }  
         .p-story__list{
-            gap: 0;//53px;
+            gap: 0;
         }
         .p-story__box{
             display:flex;

@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html lang="ja">
-<!--
-    CSSはみ出し確認
-    $$("*").forEach(v => v.style.outline = '1px solid red')    
--->
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,7 +29,7 @@
     <!-- URL正規化 -->
     <link rel="canonical" href="\">
 
-	<!-- js : defer指定 : 遅延読み込みの為、headに記述  -->
+	<!-- js : defer  -->
 	<script src="assets/lib/gsap/gsap.min.js" defer></script>
 	<script src="assets/lib/gsap/ScrollTrigger.min.js" defer></script>    
 	<script src="assets/lib/swiper/swiper-bundle.min.js" defer></script>    
@@ -92,76 +88,45 @@
             </div>
         </div>
     </header>
-    <!-- SPMENUとの被りを考慮し独立している
-    <button class="c-hamburger fixed u-display__sp"
-        data-js="button" data-name="hamburger"
-        data-headerid="header" data-menuid="spmenu"
-        data-menubgid="spmenubg">
-        <div class="c-hamburger__inner">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </button>
-     -->
-    <!-- Header End -->
 
-    <!-- spMenu
-    <div class="p-spmenu__wrapper" id="spmenu">
-        <div class="p-spmenu__bg">
-        </div>
-        <div class="p-spmenu">
-        <div class="p-spmenu__inner">
-            <ul class="enff">
-                <li><a href="#about"><span>ABOUT</span></a></li>
-                <li><a href="#speaker"><span>SPEAKER</span></a></li>
-                <li><a href="#session"><span>SESSION</span></a></li>
-            </ul>  
-        </div>
-        </div>
-    </div>
-     -->
-    <!-- spMenu : END -->
-
-        <!-- section : MV -->
-        <section class="l-section p-mv" id="mv">
-            <div class="p-mv__bg">
-                <div id="video-area">
-                    <video id="video" poster="" webkit-playsinline playsinline muted autoplay loop>
-                    <source src="assets/images/top/pc/video.mp4" type="video/mp4">
-                    <p>動画を再生できる環境ではありません。</p>
-                    </video>
-                </div>
-                
+    <!-- section : MV -->
+    <section class="l-section p-mv" id="mv">
+        <div class="p-mv__bg">
+            <div id="video-area">
+                <video id="video" poster="" webkit-playsinline playsinline muted autoplay loop>
+                <source src="assets/images/top/pc/video.mp4" type="video/mp4">
+                <p>動画を再生できる環境ではありません。</p>
+                </video>
             </div>
-            <div class="l-body p-mv__body">
-                <div class="p-mv__inner">
-                    <div class="p-mv__texts">
-                        <p class="genre">VR GAME</p>
-                        <h2 class="enff" lang="en">
-                            <span>Planet<br>Hunters</span>
-                        </h2>
-                        <p class="sub">惑星を奪還せよ</p>
-                    </div>
-                    <div class="l-btn --left p-mv__buttonwrapper">
-                        <a class="c-button__cv --mv" href="#cta"><span>PLAY NOW</span></a>
-                    </div>
+            
+        </div>
+        <div class="l-body p-mv__body">
+            <div class="p-mv__inner">
+                <div class="p-mv__texts">
+                    <p class="genre">VR GAME</p>
+                    <h2 class="enff" lang="en">
+                        <span>Planet<br>Hunters</span>
+                    </h2>
+                    <p class="sub">惑星を奪還せよ</p>
                 </div>
-                <div class="p-mv__newswrapper">
-                    <div class="p-mv__newsbox">
-                        <p class="loop"><span>2030.02.20</span>バージョン5.6リリース：アバター・アイコンリリースしました。</p>
-                        <!--<p class="loop2"><span>2030.02.20</span>バージョン5.6リリース：アバター・アイコンリリースしました。</p>-->
-                    </div>
-                </div>
-                <div class="c-animobj__scrolldown">
-                    <span>Scroll</span>
+                <div class="l-btn --left p-mv__buttonwrapper">
+                    <a class="c-button__cv --mv" href="#cta"><span>PLAY NOW</span></a>
                 </div>
             </div>
-            <div class="p-mv__pathobject">
-                <div class="c-pathobject__sec --black"></div>
+            <div class="p-mv__newswrapper">
+                <div class="p-mv__newsbox">
+                    <p class="loop"><span>2030.02.20</span>バージョン5.6リリース：アバター・アイコンリリースしました。</p>
+                </div>
             </div>
-        </section>
-        <!-- section:END -->
+            <div class="c-animobj__scrolldown">
+                <span>Scroll</span>
+            </div>
+        </div>
+        <div class="p-mv__pathobject">
+            <div class="c-pathobject__sec --black"></div>
+        </div>
+    </section>
+    <!-- section:END -->
 
     <main class="l-main" id="top">
         <!-- section : STORY -->
@@ -217,11 +182,6 @@
         <!-- section : CTA -->
         <section class="l-section p-cta" id="cta-1">
             <div class="p-cta__bg">
-                <!--
-                <picture>
-                    <source srcset="assets/images/top/pc/webp/cta_bg.webp" type="image/webp">
-                    <img src="assets/images/top/pc/cta_bg.jpg" alt="" width="1408" height="1408">
-                </picture>-->
             </div>
             <div class="c-pathobject__wrapper --rev">
                 <div class="c-pathobject__sec --black --rev"></div>
@@ -256,11 +216,6 @@
         <!-- section : CTA -->
         <section class="l-section p-cta" id="cta">
             <div class="p-cta__bg">
-                <!--
-                <picture>
-                    <source srcset="assets/images/top/pc/webp/cta_bg.webp" type="image/webp">
-                    <img src="assets/images/top/pc/cta_bg.jpg" alt="" width="1408" height="1408">
-                </picture>-->
             </div>
             <div class="c-pathobject__wrapper --rev">
                 <div class="c-pathobject__sec --key --rev"></div>
@@ -288,7 +243,6 @@
 		<div class="l-body p-footer__body">
             <div class="l-inner p-footer__inner">
                 <div class="p-footer__snswrapper">
-                    <!-- c-snsとか作った方がいい -->
                     <div class="fb">
                         <div class="fb-like" 
                         data-href="https://www.your-domain.com/your-page.html" 
@@ -302,7 +256,7 @@
                     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
                     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                     
-                    <!--LINE <i class="fa-brands fa-line"></i>-->
+                    <!--LINE -->
                     <div class="line-it-button" data-lang="ja" data-type="share-b" data-env="REAL" data-url="https://developers.line.biz/ja/docs/line-social-plugins/install-guide/using-line-share-buttons/" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
                     <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
                     
