@@ -32,33 +32,28 @@ projectルート
 ├直下にgulpfile.jsやnode_moduleなど、提出時に不要なファイル
 │
 └dist : distribution[ 提出用コード・素材 ]
-  ├dest : [出力先コード] srcからコンパイルされたコード
-  │ ├assets : コードで使用する素材
-  │ │ ├images   : 圧縮された画像
-  │ │ └webfonts : 使用する圧縮削減フォントデータ( URLからダウンロードするより無駄なく高速化 )
+  ├assets : [出力先コード] srcからコンパイルされたコード
+  │ ├images   : 圧縮された画像
+  │ ├webfonts : 使用する圧縮削減フォント( URLからダウンロードするより無駄なく高速化 )
   │ ├css   : srcのscssから出力されたcss
-  │ │ └lib : cssで使用するライブラリ( swiper等 )
-  │ └js    : srcのjsから結合されたjs
-  │   └lib : jsで使用するライブラリ( swiper等 )
+  │ ├js    : srcのjsから結合されたjs
+  │ └lib   : css,jsで使用するライブラリ( swiper等 )
   │
-  ├src : [編集元コード] 素材など不要の場合提出時は切り離す
-  │ ├assets : コードで使用する素材
-  │ │ ├images   : 圧縮前の画像
-  │ │ └webfonts : 使用する予定の圧縮削減フォントデータを事前に準備
+  ├assets_src : [編集元コード] 素材など不要の場合提出時は切り離す
+  │ ├images   : 圧縮前の画像
+  │ ├webfonts : 使用する予定の圧縮削減フォントデータを事前に準備
   │ ├sass   : scss
   │ │ ├foundation : リセットCSS、body、フォントの定義
   │ │ ├global : 全体共通の変数、関数、mixinの定義
-  │ │ ├layout : l-大枠クラスの定義( ヘッダー、フッター、メイン、サイド等 )
+  │ │ ├layout : l-レイアウト枠の定義( ヘッダー、フッター、メイン、サイド等の大枠 )
   │ │ └object : 
   │ │   ├component : c-汎用パーツクラスの定義
-  │ │   ├javascript:js-JavaScriptで使用する前提のクラス( 基本はclassでなくdata属性で指定 )
   │ │   ├project   : p-ページ単位での定義
   │ │   └utility   : u-汎用ユーティリティ( marginの指定等 )
   │ └js     : 
-  │   ├function : 
-  │   |gsap :
-  │   |mylib:
-  │   └lib  : jsで使用するライブラリ( swiper等 )
+  │   ├func : 機能
+  │   ├anim : 演出
+  │   └_myindex.js  : 読み込むjs本体
   │
   └index.html : html本体
 
